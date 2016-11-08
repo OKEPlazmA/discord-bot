@@ -1,4 +1,5 @@
 var Discord = require ('discord.js');
+var http = require('http');
 const bot = new Discord.Client();
 
 
@@ -24,9 +25,6 @@ bot.on('message', function(message){
 bot.login('MjQ1MzkwMDg0NDgyOTI0NTQ2.CwLZWw.ZtEx-ka6U68bm7EvwWKdctzTh9o');
 
 // Node Js Server
-
-//Lets require/import the HTTP module
-var http = require('http');
 
 //Lets define a port we want to listen to
 const PORT=8080;
