@@ -29,7 +29,9 @@ client.on('message', function(message) {
     if (input.indexOf('JOB' && 'DEVSLOPES') > -1) {
         message.reply('Here you go http://devslopes.com/jobs');
     }
-
+    if (input.indexOf('ASK' && 'MARK') > -1) {
+        message.reply('Check out these great tips https://www.youtube.com/playlist?list=PLpZBns8dFbgxSG5U953qZHQ7Q0DHdM8dm');
+    }
 });
 
 client.login('MjQ1NjUwODIzMzk5NDczMTUy.CwPLqw.6bz4yFh8LC-p9V54X8-z7GryVaI');
