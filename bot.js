@@ -75,6 +75,11 @@ if( (input.includes("LOVING") || input.includes("LIKE")) && input.includes("BOT"
     message.reply("Thank you. You are way more cool than me");
  }
 
+ if ((input.includes("Hello") )) {
+
+
+ }
+
 // TODO: Search a Question in Google
 if(input.includes("Question") ){
 
@@ -104,7 +109,7 @@ if(input.includes("Question") ){
 
 
 //Login to Discord using oauth
-bot.login('MjQ1NjI0NzI4NDMyMTQ4NDgy.CwOzaQ.yB4TBGLmU9QMZcQrYt1aed3xZ20');
+bot.login('TOKEN KEY ');
 
 
 //*************  Node Js Server  ************************//
