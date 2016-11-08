@@ -1,25 +1,22 @@
 var Discord = require ('discord.js');
 const bot = new Discord.Client();
 
-// this is the prefix - what is this
-var prefix = '>';
 
 // This will run whenever the bot get a message. / whenever a message is sent to a server that it is in
 bot.on('message', function(message){
+  let prefix = '!';
+  // Convert the message to UpperCase because is Case sensitive
+  let input = message.content.toUpperCase();
 
-// Convert the message to UpperCase because is Case sensitive
-var input = message.content.toUpperCase();
-
-if (input === prefix + 'FREE FOR KICKSTARTER BACKER') {
-  //Message - is the channel that it will be sent to
-  // String - Te content of the mesage that will be sent
-  message.reply("yes it's free for Kickstarter backer");
-}
-
-
-
-
-
+  if (input === 'FREE FOR KICKSTARTER BACKER') {
+    //Message - is the channel that it will be sent to
+    // String - Te content of the mesage that will be sent
+    message.reply("Yes, it's free for Kickstarter backers!");
+  
+  //safety check so bot doesn't accidentally reply to non commands   
+  if(!message.content.startsWith(prefix)) return;
+  
+  }
 });
 
 //Login using oauth
