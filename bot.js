@@ -23,8 +23,11 @@ client.on('message', function(message) {
     if (input.indexOf('STACKS' && 'WORK') > -1) {
         message.reply('This is my favorite article on stacks https://medium.freecodecamp.com/data-structures-stacks-on-stacks-c25f2633c529#.1v6qphlzr');
     }
-    if (input.indexOf('SWIFT' && 'OBJECTIVEC' || 'OBJC' && 'OR') > -1) {
+    if (input.indexOf('SWIFT' && ('OBJECTIVEC' || 'OBJC') && 'OR') > -1) {
         message.reply('This is my true reason for love https://medium.com/@bobleesj/5-reasons-why-i-fell-in-love-with-swift-23e5eea5dad8#.yhurl5wdi');
+    }
+    if (input.indexOf('JOB' && 'DEVSLOPES') > -1) {
+        message.reply('Here you go http://devslopes.com/jobs');
     }
 
 });
