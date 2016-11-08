@@ -11,7 +11,7 @@ If you want to contribute:
 </ul>
 
 
-To add a Response to the Bot you just need to add a Condition and then in the Body of the if you add what you want the bot to say.Is that easy! Help me to build a better comunity in the devslope Chatroom. 
+To add a Response to the Bot you just need to add a Condition and then in the Body of the if you add what you want the bot to say.Is that easy! Help me to build a better comunity in the devslopes Chatroom. 
 ![captura de pantalla 2016-11-08 a las 4 28 49 p m](https://cloud.githubusercontent.com/assets/18028544/20121615/ed95574a-a5e8-11e6-92fa-0ae39d560ca6.png)
 
 
