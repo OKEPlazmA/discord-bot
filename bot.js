@@ -70,6 +70,11 @@ if (input === "BOT WHO ARE YOU"){
     message.reply("I'm here to help you to became a better developer. I am a work in progress");
 }
 
+
+if( (input.includes("LOVING") || input.includes("LIKE")) && input.includes("BOT") ) {
+    message.reply("Thank you. You are way more cool than me");
+ }
+
 // TODO: Search a Question in Google
 if(input.includes("Question") ){
 
@@ -99,7 +104,7 @@ if(input.includes("Question") ){
 
 
 //Login to Discord using oauth
-bot.login('TOKEN KEY');
+bot.login('MjQ1NjI0NzI4NDMyMTQ4NDgy.CwOzaQ.yB4TBGLmU9QMZcQrYt1aed3xZ20');
 
 
 //*************  Node Js Server  ************************//
