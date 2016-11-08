@@ -9,3 +9,6 @@ If you want to contribute:
 <ol>  3) A moderator may merge it in </ol>
 <ol>  4) Doing the TODO that are in the bot.js Code </ol>
 </ul>
+
+![captura de pantalla 2016-11-08 a las 4 28 49 p m](https://cloud.githubusercontent.com/assets/18028544/20121615/ed95574a-a5e8-11e6-92fa-0ae39d560ca6.png)
+
