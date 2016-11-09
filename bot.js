@@ -1,8 +1,12 @@
 var Discord = require ('discord.js');
 //Lets require/import the HTTP module
 var http = require('http');
+var bodyParser = requier('body-parser');
 // to make https request e.g get,post,put,delete
 var request = require('request');
+
+//Use Body parser
+app.use(bodyParser.json());
 
 // Get method with the tittle of the variable question
 var StackOverflowSearchUrl = 'https://api.stackexchange.com/2.2/search?order=desc&sort=activity&tagged='+ tags +'&nottagged='+ nontagged + '&intitle='+ question + '&site=stackoverflow';
@@ -80,6 +84,7 @@ if( (input.includes("LOVING") || input.includes("LIKE")) && input.includes("BOT"
 
  }
 
+
 // TODO: Search a Question in Google
 if(input.includes("Question") ){
 
@@ -87,7 +92,7 @@ if(input.includes("Question") ){
 }
 
 
-// TODO Event that store in a file when people give a new Suggestion that they want the bot to have. e.g condition = Bot it will be nice if you have -- some function--. Proccess - Store the function in a file for future implementation to the bot.
+// TODO Event that store in a file when people give a new Suggestion that they want the bot to have. e.g 1) condition = Bot it will be nice if you have -- some function--. 2) Proccess - Store the function that that it will be good to have in a file for future implementation to the bot.
 
 // TODO Condition = Hi I can still get the -devslope- -iOS- -Kickstarter- book  . where I can buy the -devslope- book. Response = "Yes you can buy the book email jason@devslope.com"
 
@@ -110,6 +115,7 @@ if(input.includes("Question") ){
 
 //Login to Discord using oauth
 bot.login('TOKEN KEY ');
+
 
 
 //*************  Node Js Server  ************************//
