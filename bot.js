@@ -123,7 +123,8 @@ bot.on('message', function(message){
   
   //!coupon to display coupon for courses
   if (message.content.startsWith(prefix + 'coupon')) {
-    message.author.sendMessage("Use the coupon xxx to get any course for $10 at https://www.udemy.com/user/mark-price-2/")
+    message.author.sendMessage("iOS: http://bit.ly/2eu6XGC");
+    message.author.sendMessage("Android: http://bit.ly/2flDQFk");
   }
 
 
