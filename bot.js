@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var request = require('request');
 
 //Use Body parser
-app.use(bodyParser.json());
+//app.use(bodyParser.json());
 
 // Get method with the tittle of the variable question
 var StackOverflowSearchUrl = 'https://api.stackexchange.com/2.2/search?order=desc&sort=activity&tagged='+ tags +'&nottagged='+ nontagged + '&intitle='+ question + '&site=stackoverflow';
@@ -81,27 +81,31 @@ bot.on('message', function(message){
 
    if ((input.includes("Hello") )) {
 
-<<<<<<< HEAD
-
-// TODO: Search a Question in Google
-if(input.includes("Question") ){
-=======
->>>>>>> 7d073189c410b699c0c3bef834eace385687233f
-
    }
 
   // TODO: Search a Question in Google
   if(input.includes("Question") ){
 
-
-<<<<<<< HEAD
-// TODO Event that store in a file when people give a new Suggestion that they want the bot to have. e.g 1) condition = Bot it will be nice if you have -- some function--. 2) Proccess - Store the function that that it will be good to have in a file for future implementation to the bot.
-=======
   }
 
   //safety check so bot doesn't accidentally reply to non commands
   if(!message.content.startsWith(prefix)) return;
->>>>>>> 7d073189c410b699c0c3bef834eace385687233f
+  
+  //!courses lists all courses in a message
+  if (message.content.startsWith(prefix + 'courses')) {
+    message.author.sendMessage("Here is a list of Devslopes courses:");
+    message.author.sendMessage("https://www.udemy.com/devslopes-ios10/");
+    message.author.sendMessage("https://www.udemy.com/sketch-design/");
+    message.author.sendMessage("https://www.udemy.com/objectivec/");
+    message.author.sendMessage("https://www.udemy.com/intermediate-ios/");
+    message.author.sendMessage("https://www.udemy.com/learn-android/");
+    message.author.sendMessage("https://www.udemy.com/apple-tv/");
+    message.author.sendMessage("https://www.udemy.com/ios9-swift/");
+  }
+  
+  if (message.content.startsWith(prefix + 'coupon')) {
+    message.author.sendMessage("Message @devslopes for your special coupon code!")
+  }
 
 
   // TODO Event that store in a file when people give a new Suggestion that they want the bot to have. e.g condition = Bot it will be nice if you have -- some function--. Proccess - Store the function in a file for future implementation to the bot.
@@ -124,7 +128,7 @@ if(input.includes("Question") ){
 
 
 //Login to Discord using oauth
-bot.login('TOKEN KEY ');
+bot.login('MjQ1NjQxNjYxOTQ4ODg3MDQw.CwPDLg.wSCikqeTltFdZ9PobjHqAp9zTsY');
 
 
 
