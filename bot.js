@@ -184,7 +184,7 @@ if ((input.includes("HI BOT") )) {
 
 
 //Login to Discord using oauth
-bot.login('TOKEN_KEY');
+bot.login('MjQ1MzkwMDg0NDgyOTI0NTQ2.CwQefg.p2rkiB8vIb5WHjbCyfCE3K1DA4s');
 
 
 
