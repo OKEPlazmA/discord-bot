@@ -104,7 +104,8 @@ bot.on('message', function(message){
   }
   
   if (message.content.startsWith(prefix + 'coupon')) {
-    message.author.sendMessage("Message @devslopes for your special coupon code!")
+    message.author.sendMessage("iOS: http://bit.ly/2eu6XGC");
+    message.author.sendMessage("Android: http://bit.ly/2flDQFk");
   }
 
 
