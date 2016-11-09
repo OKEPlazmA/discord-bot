@@ -23,7 +23,7 @@ var nontagged = "objective%20c"
 const bot = new Discord.Client();
 
 
- // TODO Parse JSON From StackOverflowSearchUrl
+// TODO Parse JSON From StackOverflowSearchUrl
 request(StackOverflowSearchUrl, function (error, response, body) {
   if (!error && response.statusCode == 200) {
     console.log("Parse Json Here");
@@ -78,13 +78,10 @@ bot.on('message', function(message){
       message.reply("Thank you. You are way cooler than me");
    }
 
-  if ((input.includes("Hello") )) {
-
-  }
-
-  //-Cassidy
+  //Cassidy
   var macApp = input.includes("MAC APP") && input.includes("DEVSLOPES") && input.includes("DEVSLOPE");
   var devBook = input.includes("BOOK") && input.includes("DEVSLOPES") && input.includes("DEVSLOPE");
+  var howTo = input.includes("HOW") && input.includes("USE") && input.includes("BOT");
 
   //Mac and Apple TV App Questeion -Cassidy
   if (macApp){
@@ -97,8 +94,13 @@ bot.on('message', function(message){
   }
 
   //Bot How To -Cassidy
-  if (input === "HOW DO YOU USE THE BOT"){
+  if (howTo){
    message.reply("Just ask me a question and I will answer");
+  }
+
+  //Hello -Cassidy
+  if ((input.includes("Hello") )) {
+    message.reply("Hello!! :D");
   }
 
   // TODO: Search a Question in Google
@@ -126,8 +128,6 @@ bot.on('message', function(message){
   }
 
   // TODO Event that store in a file when people give a new Suggestion that they want the bot to have. e.g condition = Bot it will be nice if you have -- some function--. Proccess - Store the function in a file for future implementation to the bot.
-
-  // TODO Condition = Hi I can still get the -devslope- -iOS- -Kickstarter- book  . where I can buy the -devslope- book. Response = "Yes you can buy the book email jason@devslope.com"
 
   //TODO Create a void method to separate the code from here
 
