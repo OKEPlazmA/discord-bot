@@ -110,7 +110,7 @@ bot.on('message', function(message){
 
   //Hello -Cassidy
   if ((input.includes("HI BOT") )) {
-    message.reply("Hello!! :D");
+    message.reply("Hello!! :D");$
   }
 
 
