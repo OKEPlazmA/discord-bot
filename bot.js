@@ -103,6 +103,17 @@ bot.on('message', function(message){
     message.reply("Hello!! :D");
   }
 
+  //Hello -Cassidy
+  if ((input.includes("HI") )) {
+    message.reply("Hello!! :D");
+  }
+
+  //Hello -Cassidy
+  if ((input.includes("HI BOT") )) {
+    message.reply("Hello!! :D");
+  }
+
+
   // TODO: Search a Question in Google
   if(input.includes("Question") ){
 
