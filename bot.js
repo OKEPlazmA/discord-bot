@@ -90,6 +90,23 @@ bot.on('message', function(message){
 
   //safety check so bot doesn't accidentally reply to non commands
   if(!message.content.startsWith(prefix)) return;
+  //prevent the bot from issuing commands
+  if(message.author.bot) return;  
+  
+  
+  //!help displays all available commands
+  let help = [ "courses",
+    "coupon"
+  ];
+  
+  if (message.content.startsWith(prefix + 'help')) {
+    message.author.sendMessage("Here is a list of available commands:");
+    
+    for (var i in help) {
+      message.author.sendMessage(prefix + help[i]);
+    }
+  }
+  
   
   //!courses lists all courses in a message
   if (message.content.startsWith(prefix + 'courses')) {
@@ -103,8 +120,11 @@ bot.on('message', function(message){
     message.author.sendMessage("https://www.udemy.com/ios9-swift/");
   }
   
+  
+  //!coupon to display coupon for courses
   if (message.content.startsWith(prefix + 'coupon')) {
-    message.author.sendMessage("Message @devslopes for your special coupon code!")
+    message.author.sendMessage("iOS: http://bit.ly/2eu6XGC");
+    message.author.sendMessage("Android: http://bit.ly/2flDQFk");
   }
 
 
@@ -128,7 +148,7 @@ bot.on('message', function(message){
 
 
 //Login to Discord using oauth
-bot.login('MjQ1NjQxNjYxOTQ4ODg3MDQw.CwPDLg.wSCikqeTltFdZ9PobjHqAp9zTsY');
+bot.login('TOKEN_KEY');
 
 
 
