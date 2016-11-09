@@ -1,8 +1,12 @@
 var Discord = require ('discord.js');
 //Lets require/import the HTTP module
 var http = require('http');
+var bodyParser = require('body-parser');
 // to make https request e.g get,post,put,delete
 var request = require('request');
+
+//Use Body parser
+app.use(bodyParser.json());
 
 // Get method with the tittle of the variable question
 var StackOverflowSearchUrl = 'https://api.stackexchange.com/2.2/search?order=desc&sort=activity&tagged='+ tags +'&nottagged='+ nontagged + '&intitle='+ question + '&site=stackoverflow';
