@@ -90,6 +90,8 @@ bot.on('message', function(message){
 
   //safety check so bot doesn't accidentally reply to non commands
   if(!message.content.startsWith(prefix)) return;
+  //prevent the bot from issuing commands
+  if(message.author.bot) return;  
   
   
   //!help displays all available commands
@@ -145,7 +147,7 @@ bot.on('message', function(message){
 
 
 //Login to Discord using oauth
-bot.login('MjQ1NjQxNjYxOTQ4ODg3MDQw.CwPDLg.wSCikqeTltFdZ9PobjHqAp9zTsY');
+bot.login('TOKEN_KEY');
 
 
 
