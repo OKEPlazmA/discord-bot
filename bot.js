@@ -1,12 +1,8 @@
 var Discord = require ('discord.js');
 //Lets require/import the HTTP module
 var http = require('http');
-var bodyParser = requier('body-parser');
 // to make https request e.g get,post,put,delete
 var request = require('request');
-
-//Use Body parser
-app.use(bodyParser.json());
 
 // Get method with the tittle of the variable question
 var StackOverflowSearchUrl = 'https://api.stackexchange.com/2.2/search?order=desc&sort=activity&tagged='+ tags +'&nottagged='+ nontagged + '&intitle='+ question + '&site=stackoverflow';
@@ -38,77 +34,87 @@ request(StackOverflowSearchUrl, function (error, response, body) {
 
 // This will run whenever the bot get a message. / whenever a message is sent to a server that it is in
 bot.on('message', function(message){
+  let prefix = '!';
+  // Convert the message to UpperCase because is Case sensitive
+  var input = message.content.toUpperCase();
 
-// Convert the message to UpperCase because is Case sensitive
-var input = message.content.toUpperCase();
+  //** TODO Change this code to a Method that pass input via a Parameter
+  var condition1 = input.includes("KICKSTARTER BACKER") && input.includes("COURSE") && input.includes("FREE");
+  var condition2 = input.includes("KICKSTARTER BACKER") &&
+  input.includes("FREE");
 
-//** TODO Change this code to a Method that pass input via a Parameter
-var condition1 = input.includes("KICKSTARTER BACKER") && input.includes("COURSE") && input.includes("FREE");
-var condition2 = input.includes("KICKSTARTER BACKER") &&
-input.includes("FREE");
+  var condition3 = input.includes("KICKSTARTER BACKER") && input.includes("COURSE");
+  var condition4 = input.includes("KICKSTARTER")&& input.includes("COURSE");
+  var condition5 = input.includes("BACKER") && input.includes("COURSE");
 
-var condition3 = input.includes("KICKSTARTER BACKER") && input.includes("COURSE");
-var condition4 = input.includes("KICKSTARTER")&& input.includes("COURSE");
-var condition5 = input.includes("BACKER") && input.includes("COURSE");
-
-var lateEvent = input.includes("LATE") && input.includes("PLEDGE");
-
-
-
-if (condition4 || condition3 || condition5) {
-  //Message - is the channel that it will be sent to
-  // String - Te content of the mesage that will be sent
-  message.reply("yes it's free for Kickstarter backer who pledge above 100$");
-}
+  var lateEvent = input.includes("LATE") && input.includes("PLEDGE");
 
 
- if(lateEvent){
-   message.reply("yeah email jason@devslope.com for more info");
-}
 
-if(input ==="I AM PRETTY" || input === "I AM PRETTY ?"){
-    message.reply("Yes,You are always Pretty. Keep Smiling. ");
-}
-
-if (input === "BOT WHO ARE YOU"){
-    message.reply("I'm here to help you to became a better developer. I am a work in progress");
-}
+  if (condition4 || condition3 || condition5) {
+    //Message - is the channel that it will be sent to
+    // String - Te content of the mesage that will be sent
+    message.reply("yes it's free for Kickstarter backer who pledge above $100");
+  }
 
 
-if( (input.includes("LOVING") || input.includes("LIKE")) && input.includes("BOT") ) {
-    message.reply("Thank you. You are way more cool than me");
- }
+   if(lateEvent){
+     message.reply("yeah email jason@devslope.com for more info");
+  }
 
- if ((input.includes("Hello") )) {
+  if(input ==="I AM PRETTY" || input === "I AM PRETTY ?"){
+      message.reply("Yes. You are always Pretty. Keep Smiling. ");
+  }
+
+  if (input === "BOT WHO ARE YOU"){
+      message.reply("I'm here to help you to become a better developer. I am a work in progress");
+  }
 
 
- }
+  if( (input.includes("LOVING") || input.includes("LIKE")) && input.includes("BOT") ) {
+      message.reply("Thank you. You are way cooler than me");
+   }
 
+   if ((input.includes("Hello") )) {
+
+<<<<<<< HEAD
 
 // TODO: Search a Question in Google
 if(input.includes("Question") ){
+=======
+>>>>>>> 7d073189c410b699c0c3bef834eace385687233f
+
+   }
+
+  // TODO: Search a Question in Google
+  if(input.includes("Question") ){
 
 
-}
-
-
+<<<<<<< HEAD
 // TODO Event that store in a file when people give a new Suggestion that they want the bot to have. e.g 1) condition = Bot it will be nice if you have -- some function--. 2) Proccess - Store the function that that it will be good to have in a file for future implementation to the bot.
+=======
+  }
 
-// TODO Condition = Hi I can still get the -devslope- -iOS- -Kickstarter- book  . where I can buy the -devslope- book. Response = "Yes you can buy the book email jason@devslope.com"
-
-//TODO Create a void method to separate the code from here
-
-// TODO Condition = How to use the boot. Response = Step by step on how to use the bot
-
-// TODO Condition = What the bot can do. Create a Response for this
-
-//TODO Condition = I can get all the course that I paid in Udmey within the Desvlope app. Proccess = str.includes("COURSE") && str.includes("UDEMY") && str.includes("DEVSLOPE APP"). Response = No --Custom Response--
-
-//TODO Make a Grahical User Interface to add condition and Response an validate the input instead of adding each condition and Response in code.
-
-//TODO condition = when the --mac app-- --devslope mac app-- will be ready. response = the mac app will be ready in december 31
+  //safety check so bot doesn't accidentally reply to non commands
+  if(!message.content.startsWith(prefix)) return;
+>>>>>>> 7d073189c410b699c0c3bef834eace385687233f
 
 
+  // TODO Event that store in a file when people give a new Suggestion that they want the bot to have. e.g condition = Bot it will be nice if you have -- some function--. Proccess - Store the function in a file for future implementation to the bot.
+
+  // TODO Condition = Hi I can still get the -devslope- -iOS- -Kickstarter- book  . where I can buy the -devslope- book. Response = "Yes you can buy the book email jason@devslope.com"
+
+  //TODO Create a void method to separate the code from here
+
+  // TODO Condition = How to use the boot. Response = Step by step on how to use the bot
+
+  // TODO Condition = What the bot can do. Create a Response for this
+
+  //TODO Condition = I can get all the course that I paid in Udmey within the Desvlope app. Proccess = str.includes("COURSE") && str.includes("UDEMY") && str.includes("DEVSLOPE APP"). Response = No --Custom Response--
+
+  //TODO Make a Grahical User Interface to add condition and Response an validate the input instead of adding each condition and Response in code.
+
+  //TODO condition = when the --mac app-- --devslope mac app-- will be ready. response = the mac app will be ready in december 31
 
 });
 
