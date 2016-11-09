@@ -91,6 +91,21 @@ bot.on('message', function(message){
   //safety check so bot doesn't accidentally reply to non commands
   if(!message.content.startsWith(prefix)) return;
   
+  
+  //!help displays all available commands
+  let help = [ "courses",
+    "coupon"
+  ];
+  
+  if (message.content.startsWith(prefix + 'help')) {
+    message.author.sendMessage("Here is a list of available commands:");
+    
+    for (var i in help) {
+      message.author.sendMessage(prefix + help[i]);
+    }
+  }
+  
+  
   //!courses lists all courses in a message
   if (message.content.startsWith(prefix + 'courses')) {
     message.author.sendMessage("Here is a list of Devslopes courses:");
@@ -103,8 +118,10 @@ bot.on('message', function(message){
     message.author.sendMessage("https://www.udemy.com/ios9-swift/");
   }
   
+  
+  //!coupon to display coupon for courses
   if (message.content.startsWith(prefix + 'coupon')) {
-    message.author.sendMessage("Message @devslopes for your special coupon code!")
+    message.author.sendMessage("Use the coupon xxx to get any course for $10 at https://www.udemy.com/user/mark-price-2/")
   }
 
 
