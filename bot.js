@@ -23,7 +23,7 @@ var nontagged = "objective%20c"
 const bot = new Discord.Client();
 
 
-// TODO Parse JSON From StackOverflowSearchUrl
+ // TODO Parse JSON From StackOverflowSearchUrl
 request(StackOverflowSearchUrl, function (error, response, body) {
   if (!error && response.statusCode == 200) {
     console.log("Parse Json Here");
@@ -42,11 +42,10 @@ bot.on('message', function(message){
   // Convert the message to UpperCase because is Case sensitive
   var input = message.content.toUpperCase();
 
-
-
   //** TODO Change this code to a Method that pass input via a Parameter
   var condition1 = input.includes("KICKSTARTER BACKER") && input.includes("COURSE") && input.includes("FREE");
-  var condition2 = input.includes("KICKSTARTER BACKER") && input.includes("FREE");
+  var condition2 = input.includes("KICKSTARTER BACKER") &&
+  input.includes("FREE");
 
   var condition3 = input.includes("KICKSTARTER BACKER") && input.includes("COURSE");
   var condition4 = input.includes("KICKSTARTER")&& input.includes("COURSE");
@@ -62,7 +61,8 @@ bot.on('message', function(message){
     message.reply("yes it's free for Kickstarter backer who pledge above $100");
   }
 
-  if(lateEvent){
+
+   if(lateEvent){
      message.reply("yeah email jason@devslope.com for more info");
   }
 
@@ -74,44 +74,49 @@ bot.on('message', function(message){
       message.reply("I'm here to help you to become a better developer. I am a work in progress");
   }
 
+
   if( (input.includes("LOVING") || input.includes("LIKE")) && input.includes("BOT") ) {
       message.reply("Thank you. You are way cooler than me");
    }
 
-  //Cassidy
-  var macApp = input.includes("MAC APP") && input.includes("DEVSLOPES") && input.includes("DEVSLOPE");
-  var devBook = input.includes("BOOK") && input.includes("DEVSLOPES") && input.includes("DEVSLOPE");
-  var howTo = input.includes("HOW") && input.includes("USE") && input.includes("BOT");
+   if ((input.includes("Hello") )) {
 
-  //Mac and Apple TV App Questeion -Cassidy
-  if (macApp){
-      message.reply("The Mac & Apple TV App will be ready by December 31st.");
-  }
+   }
 
-  //Dev Book -Cassidy
-  if (devBook){
-     message.reply("Yes you can buy the book email jason@devslope.com");
-  }
+   //Cassidy
+var macApp = input.includes("MAC APP") && input.includes("DEVSLOPES") && input.includes("DEVSLOPE");
+var devBook = input.includes("BOOK") && input.includes("DEVSLOPES") && input.includes("DEVSLOPE");
+var howTo = input.includes("HOW") && input.includes("USE") && input.includes("BOT");
 
-  //Bot How To -Cassidy
-  if (howTo){
-   message.reply("Just ask me a question and I will answer");
-  }
+//Mac and Apple TV App Questeion -Cassidy
+if (macApp){
+    message.reply("The Mac & Apple TV App will be ready by December 31st.");
+}
 
-  //Hello -Cassidy
-  if ((input.includes("Hello") )) {
-    message.reply("Hello!! :D");
-  }
+//Dev Book -Cassidy
+if (devBook){
+   message.reply("Yes you can buy the book email jason@devslope.com");
+}
 
-  //Hello -Cassidy
-  if ((input.includes("HI") )) {
-    message.reply("Hello!! :D");
-  }
+//Bot How To -Cassidy
+if (howTo){
+ message.reply("Just ask me a question and I will answer");
+}
 
-  //Hello -Cassidy
-  if ((input.includes("HI BOT") )) {
-    message.reply("Hello!! :D");$
-  }
+//Hello -Cassidy
+if ((input.includes("Hello") )) {
+  message.reply("Hello!! :D");
+}
+
+//Hello -Cassidy
+if ((input.includes("HI") )) {
+  message.reply("Hello!! :D");
+}
+
+//Hello -Cassidy
+if ((input.includes("HI BOT") )) {
+  message.reply("Hello!! :D");$
+}
 
 
   // TODO: Search a Question in Google
@@ -121,6 +126,23 @@ bot.on('message', function(message){
 
   //safety check so bot doesn't accidentally reply to non commands
   if(!message.content.startsWith(prefix)) return;
+  //prevent the bot from issuing commands
+  if(message.author.bot) return;
+
+
+  //!help displays all available commands
+  let help = [ "courses",
+    "coupon"
+  ];
+
+  if (message.content.startsWith(prefix + 'help')) {
+    message.author.sendMessage("Here is a list of available commands:");
+
+    for (var i in help) {
+      message.author.sendMessage(prefix + help[i]);
+    }
+  }
+
 
   //!courses lists all courses in a message
   if (message.content.startsWith(prefix + 'courses')) {
@@ -134,24 +156,35 @@ bot.on('message', function(message){
     message.author.sendMessage("https://www.udemy.com/ios9-swift/");
   }
 
+
+  //!coupon to display coupon for courses
   if (message.content.startsWith(prefix + 'coupon')) {
-    message.author.sendMessage("Message @devslopes for your special coupon code!")
+    message.author.sendMessage("iOS: http://bit.ly/2eu6XGC");
+    message.author.sendMessage("Android: http://bit.ly/2flDQFk");
   }
+
 
   // TODO Event that store in a file when people give a new Suggestion that they want the bot to have. e.g condition = Bot it will be nice if you have -- some function--. Proccess - Store the function in a file for future implementation to the bot.
 
+  // TODO Condition = Hi I can still get the -devslope- -iOS- -Kickstarter- book  . where I can buy the -devslope- book. Response = "Yes you can buy the book email jason@devslope.com"
+
   //TODO Create a void method to separate the code from here
+
+  // TODO Condition = How to use the boot. Response = Step by step on how to use the bot
+
+  // TODO Condition = What the bot can do. Create a Response for this
 
   //TODO Condition = I can get all the course that I paid in Udmey within the Desvlope app. Proccess = str.includes("COURSE") && str.includes("UDEMY") && str.includes("DEVSLOPE APP"). Response = No --Custom Response--
 
   //TODO Make a Grahical User Interface to add condition and Response an validate the input instead of adding each condition and Response in code.
 
+  //TODO condition = when the --mac app-- --devslope mac app-- will be ready. response = the mac app will be ready in december 31
 
 });
 
 
 //Login to Discord using oauth
-bot.login('MjQ1MzkwMDg0NDgyOTI0NTQ2.CwQefg.p2rkiB8vIb5WHjbCyfCE3K1DA4s');
+bot.login('TOKEN_KEY');
 
 
 
