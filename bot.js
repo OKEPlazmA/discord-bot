@@ -204,3 +204,4 @@ function handleRequest(request, response) {
         //Callback triggered when server is successfully listening. Hurray!
         console.log("Server listening on: http://localhost:%s", PORT);
     });
+}
