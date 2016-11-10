@@ -1,6 +1,5 @@
 var Discord = require('discord.js');
 var stackexchange = require('stackexchange');
-var keyword_extractor = require("keyword-extractor");
 var Discord = require('discord.js');
 
 //Lets require/import the HTTP module
@@ -13,10 +12,6 @@ var request = require('request');
 //app.use(bodyParser.json());
 
 // Get method with the tittle of the variable question
-
-var StackOverflowSearchUrl = 'https://api.stackexchange.com/2.2/search?order=desc&sort=activity&tagged=' + tags + '&nottagged=' + nontagged + '&intitle=' + question + '&site=stackoverflow';
-
-// search by tittle in the question
 // this check the titlle of the question. Any tittle that have the breakpoint string will show in the response as an posible answer to the question. The bot will response the link of three of the best voted answer.
 var question = "breakpoint";
 // search the question with this tag
@@ -26,95 +21,57 @@ var nontagged = "objective%20c"
 //
 // bot client
 const bot = new Discord.Client();
-
 // This will run whenever the bot get a message. / whenever a message is sent to a server that it is in
 bot.on('message', function(message) {
     let prefix = '!';
     // Convert the message to UpperCase because is Case sensitive
     var input = message.content.toUpperCase();
 
-    //making a call to stackoverflow
-    //
-    if (input.indexOf('?') > -1) {
-        var sentence = message.content;
-        if (sentence != "?") {
-            var channelTags = [];
-            var extraction_result = keyword_extractor.extract(sentence, {
-                language: "english",
-                remove_digits: true,
-                return_changed_case: false,
-                return_chained_words: false,
-                remove_duplicates: true
-            });
-            //
-            //Additional support for getting channels better search resutls
-            if (Discord.Channel.id === 245373360215818240) { //DEVBOT CHANNEL116404983234035716
-                channelTags === extraction_result.concat("bot", "node.js", "javascript", "discord");
-            } else if (Discord.Channel.id === 207559045530255360) { //iOS 10 course CHANNEL
-                channelTags === extraction_result.concat("iOS", "swift", "iphone", "xcode", "iOS10");
-            } else if (Discord.Channel.id === 129421763439230977) { //ANDROID course CHANNEL
-                channelTags === extraction_result.concat("Android", "java", "xml", "android studio");
-            } else if (Discord.Channel.id === 116408187288027141) { //iOS course CHANNEL
-                channelTags === extraction_result.concat("ios", "ios10", "iphone", "xcode", "swift");
-            } else if (Discord.Channel.id === 236187750900957194) { //Unity 3D course CHANNEL
-                channelTags = extraction_result.concat("unity3d", "c#", "iphone", "c++");
-            } else if (Discord.Channel.id === 116408213208825864) { //TV OS course CHANNEL
-                channelTags = extraction_result.concat("javascript", "tvos", "swift", "apple-tv");
-            } else if (Discord.Channel.id === 116408248675991554) { //WATCH OS course CHANNEL
-                channelTags = extraction_result.concat("swift", "watchos", "xcode", "iphone", "ios10");
-            } else if (Discord.Channel.id === 116410895155986437) { //SWIFT CHANNEL
-                channelTags = extraction_result.concat("swift", "xcode", "iphone", "ios10");
-            } else if (Discord.Channel.id === 116410953079324673) { //OBJC course CHANNEL
-                channelTags = extraction_result.concat("objc", "xcode", "iphone", "ios10", "objectivec", "objective-c");
-            } else if (Discord.Channel.id === 123923261326229504) { //WEB DEV course CHANNEL
-                channelTags = extraction_result.concat("react", "javascript", "react.js", "html", "css", "jquery", "sql", "mysql", "python");
-            } else if (Discord.Channel.id === 131116113001054208) { //ANDROID CHANNEL
-                channelTags = extraction_result.concat("Android", "java", "xml", "Android Studio");
-            } else if (Discord.Channel.id === 116413405199466503) { //iOS 9 course CHANNEL
-                channelTags = extraction_result.concat("iOS", "swift", "iphone", "xcode", "ios9");
-            } else if (Discord.Channel.id === 187915743998771200) { //FIREBASE CHANNEL
-                channelTags = extraction_result.concat("firebase");
-            } else if (Discord.Channel.id === 162230646578741249) { //COURSE INTERMEDIATE CHANNEL
-                channelTags = extraction_result.concat("ios", "ios9", "iphone");
-            }
-
-            console.log(channelTags);
-            var options = {
-                version: 2.2
-            };
-            var context = new stackexchange(options);
-
-            var filter = {
-                key: 'lSCrDdqvXp3Bru)3satyHw((', //PUT THE KEY TO STACKEXCHANGE HERE!!!!!!!!!!
-                tagged: extraction_result,
-                sort: 'relevance',
-                order: 'desc'
-            };
-
-            // Get all the questions (http://api.stackexchange.com/docs/questions)
-            //search.search
-            context.questions.questions(filter, function(err, results) {
-                console.log(results.items);
-            })
-            /*context.questions.answers(filter, function(err, results) {
-                if (results) {
-                    if (results.items) {
-
-                        if (results.items[0].link) {
-                            message.reply('Checkout this link ' + (results.items[1].link));
-                        }
-                        //console.log(results.items);
-
-                    }
-                    //message.reply('Checkout this link ' + (results.items[1].link));
-                    if (results.has_more) {
-                        console.log('The bot will say please do some research on your own there are alot of articles on this subject');
-                    }
+    //making a call to stackoverflow --------------->
+    var respondedToQuestion = false;
+    function stackOverflowApiResults(question) {
+        var options = {
+            version: 2.2
+        };
+        var context = new stackexchange(options);
+        var filter = {
+            key: 'lSCrDdqvXp3Bru)3satyHw((', //PUT THE KEY TO STACKEXCHANGE HERE!!!!!!!!!!
+            sort: 'relevance',
+            answers: '1',
+            q: question,
+            order: 'asc'
+        };
+        context.search.advanced(filter, function(err, results) {
+            if (results) {
+                //message.reply('Would you like me to give you a couple suggestions(YES!/NO!)');
+                //if (respondedToQuestion) {
+                //console.log(results.items);
+                if (results.items[0].link) {
+                    message.reply('Checkout this Link, and if it is not what You are Looking for Ask me the same question in a different Way :grinning:                                                                                                 ' + (results.items[0].link));
                 }
-            });*/
-        }
+                //}
+
+            }
+        });
     }
-    //Making call to Stackexchange
+    /*var messageFunc = (function() {
+        var message = input;
+        console.log("this is message" + message);
+        return message;
+    });
+    console.log(messageFunc());*/
+    if (input.indexOf('?') > -1) {
+        if (input.indexOf('?') > -1) {
+            var sentence = message.content.toString();
+            stackOverflowApiResults(sentence);
+        }
+
+        /*if (input.indexOf('YES!') > -1) {
+            respondedToQuestion = true;
+            stackOverflowApiResults(messageFunc);
+        }*/
+    }
+    //Making call to Stackexchange ^^^^^^^
 
     //** TODO Change this code to a Method that pass input via a Parameter
     var condition1 = input.includes("KICKSTARTER BACKER") && input.includes("COURSE") && input.includes("FREE");
