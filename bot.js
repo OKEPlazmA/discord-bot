@@ -1,4 +1,4 @@
-var Discord = require('discord.js');
+var Discord = require ('discord.js')
 var stackexchange = require('stackexchange');
 var keyword_extractor = require("keyword-extractor");
 var zlib = require('zlib');
