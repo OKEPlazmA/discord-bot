@@ -1,7 +1,8 @@
+'use strict'; // enables ES6 syntax
 var Discord = require('discord.js');
 var stackexchange = require('stackexchange');
 var keyword_extractor = require("keyword-extractor");
-var Discord = require('discord.js');
+
 
 //Lets require/import the HTTP module
 var http = require('http');
@@ -25,6 +26,25 @@ var nontagged = "objective%20c"
 
 // bot client
 const bot = new Discord.Client();
+
+//TODO Error
+const newUsers = [];
+
+bot.on("guildMemberAdd", (guild, member) => {
+  if(!newUsers[guild.id]) newUsers[guild.id] = new Discord.Collection();
+  newUsers[guild.id].set(member.user.id, member.user);
+
+  if(newUsers[guild.id].size >= 1) {
+    var userlist = newUsers[guild.id].map(u => u.mention()).join(" ");
+    guild.channels.get(guild.id).sendMessage("Welcome our new users!\n"+userlist);
+    newUsers[guild.id] = new Discord.Collection();
+  }
+
+bot.on("guildMemberRemove", (guild, member) => {
+  if(newUsers[guild.id].exists("id", member.user.id)) newUsers.delete(member.user.id);
+});
+
+});
 
 // This will run whenever the bot get a message. / whenever a message is sent to a server that it is in
 bot.on('message', function(message) {
@@ -93,6 +113,8 @@ bot.on('message', function(message) {
     var condition5 = input.includes("BACKER") && input.includes("COURSE");
 
     var lateEvent = input.includes("LATE") && input.includes("PLEDGE");
+    var book = input.includes("BOOK") && input.includes("HOW")
+    var book2 = input.includes("BOOK") && input.includes("WHEN")
 
     if (condition4 || condition3 || condition5) {
         //Message - is the channel that it will be sent to
@@ -102,6 +124,14 @@ bot.on('message', function(message) {
 
     if (lateEvent) {
         message.reply("Yeah email jason@devslope.com for more info.");
+    }
+
+    if (book) {
+      message.reply("Yeah email jason@devslope.com for more info.")
+    }
+
+    if (book2) {
+      message.reply("The Devslops book should be out by Nov 30th.")
     }
 
     if (input === "I AM PRETTY" || input === "I AM PRETTY?") {
@@ -116,10 +146,10 @@ bot.on('message', function(message) {
         message.reply("Thank you. You are way cooler than me.");
     }
 
-    if ((input.includes("Hello"))) {}
+    if ((input.includes("HELLO"))) {}
 
     // TODO: Search a Question in Google
-    if (input.includes("Question")) {}
+    if (input.includes("QUESTION")) {}
 
     //safety check so bot doesn't accidentally reply to non commands
     if (!message.content.startsWith(prefix))
@@ -158,15 +188,13 @@ bot.on('message', function(message) {
         message.author.sendMessage("Android: http://bit.ly/2flDQFk");
     }
 
-    // TODO Event that store in a file when people give a new Suggestion that they want the bot to have. e.g condition = Bot it will be nice if you have -- some function--. Proccess - Store the function in a file for future implementation to the bot.
-
-    // TODO Condition = Hi I can still get the -devslope- -iOS- -Kickstarter- book  . where I can buy the -devslope- book. Response = "Yes you can buy the book email jason@devslope.com"
+    //TODO Event that store in a file when people give a new Suggestion that they want the bot to have. e.g condition = Bot it will be nice if you have -- some function--. Proccess - Store the function in a file for future implementation to the bot.
 
     //TODO Create a void method to separate the code from here
 
-    // TODO Condition = How to use the boot. Response = Step by step on how to use the bot
+    //TODO Condition = How to use the boot. Response = Step by step on how to use the bot
 
-    // TODO Condition = What the bot can do. Create a Response for this
+    //TODO Condition = What the bot can do. Create a Response for this
 
     //TODO Condition = I can get all the course that I paid in Udmey within the Desvlope app. Proccess = str.includes("COURSE") && str.includes("UDEMY") && str.includes("DEVSLOPE APP"). Response = No --Custom Response--
 
