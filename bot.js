@@ -83,6 +83,42 @@ bot.on('message', function(message){
 
    }
 
+   //Cassidy
+var macApp = input.includes("MAC APP") && input.includes("DEVSLOPES") && input.includes("DEVSLOPE");
+var devBook = input.includes("BOOK") && input.includes("DEVSLOPES") && input.includes("DEVSLOPE");
+var howTo = input.includes("HOW") && input.includes("USE") && input.includes("BOT");
+
+//Mac and Apple TV App Questeion -Cassidy
+if (macApp){
+    message.reply("The Mac & Apple TV App will be ready by December 31st.");
+}
+
+//Dev Book -Cassidy
+if (devBook){
+   message.reply("Yes you can buy the book email jason@devslope.com");
+}
+
+//Bot How To -Cassidy
+if (howTo){
+ message.reply("Just ask me a question and I will answer");
+}
+
+//Hello -Cassidy
+if ((input.includes("Hello") )) {
+  message.reply("Hello!! :D");
+}
+
+//Hello -Cassidy
+if ((input.includes("HI") )) {
+  message.reply("Hello!! :D");
+}
+
+//Hello -Cassidy
+if ((input.includes("HI BOT") )) {
+  message.reply("Hello!! :D");$
+}
+
+
   // TODO: Search a Question in Google
   if(input.includes("QUESTION") ){
 
@@ -91,23 +127,23 @@ bot.on('message', function(message){
   //safety check so bot doesn't accidentally reply to non commands
   if(!message.content.startsWith(prefix)) return;
   //prevent the bot from issuing commands
-  if(message.author.bot) return;  
-  
-  
+  if(message.author.bot) return;
+
+
   //!help displays all available commands
   let help = [ "courses",
     "coupon"
   ];
-  
+
   if (message.content.startsWith(prefix + 'help')) {
     message.author.sendMessage("Here is a list of available commands:");
-    
+
     for (var i in help) {
       message.author.sendMessage(prefix + help[i]);
     }
   }
-  
-  
+
+
   //!courses lists all courses in a message
   if (message.content.startsWith(prefix + 'courses')) {
     message.author.sendMessage("Here is a list of Devslopes courses:");
@@ -119,8 +155,8 @@ bot.on('message', function(message){
     message.author.sendMessage("https://www.udemy.com/apple-tv/");
     message.author.sendMessage("https://www.udemy.com/ios9-swift/");
   }
-  
-  
+
+
   //!coupon to display coupon for courses
   if (message.content.startsWith(prefix + 'coupon')) {
     message.author.sendMessage("iOS: http://bit.ly/2eu6XGC");
@@ -160,7 +196,7 @@ bot.on('message', function(message){
 
 
 //Login to Discord using oauth
-bot.login('TOKEN_KEY');
+bot.login('MjQ1MzkwMDg0NDgyOTI0NTQ2.CwQefg.p2rkiB8vIb5WHjbCyfCE3K1DA4s');
 
 
 
