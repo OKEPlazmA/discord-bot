@@ -66,7 +66,7 @@ bot.on('message', function(message){
      message.reply("yeah email jason@devslope.com for more info");
   }
 
-  if(input ==="I AM PRETTY" || input === "I AM PRETTY ?"){
+  if(input ==="I AM PRETTY" || input === "I AM PRETTY ?" || input === "AM I PRETTY" || input === "AM I PRETTY?"){
       message.reply("Yes. You are always Pretty. Keep Smiling. ");
   }
 
@@ -75,16 +75,16 @@ bot.on('message', function(message){
   }
 
 
-  if( (input.includes("LOVING") || input.includes("LIKE")) && input.includes("BOT") ) {
+  if( (input.includes("LOVING") || input.includes("LOVE") || input.includes("LIKE")) && input.includes("BOT") ) {
       message.reply("Thank you. You are way cooler than me");
    }
 
-   if ((input.includes("Hello") )) {
+   if ((input.includes("HELLO") )) {
 
    }
 
   // TODO: Search a Question in Google
-  if(input.includes("Question") ){
+  if(input.includes("QUESTION") ){
 
   }
 
@@ -127,6 +127,18 @@ bot.on('message', function(message){
     message.author.sendMessage("Android: http://bit.ly/2flDQFk");
   }
 
+  //RELEASE DATES
+  if (input.includes("RELEASE") || input.includes ("RELEASED") ) {
+  	// Unity3D Course
+  	if ( (input.includes("UNITY") || input.includes("UNITY3D")) && input.includes("COURSE") ) {
+  		message.author.sendMessage("The Unity course is scheduled to be released on Friday, Nov. 11th")
+  	}
+  	// Mac OSX app
+  	if ( (input.includes("MAC") || input.includes("OSX")) && input.includes("APP") ) {
+  		message.author.sendMessage("The Mac OSX Devslopes app is expected to be released by the end of 2016.")
+  	}
+  }
+
 
   // TODO Event that store in a file when people give a new Suggestion that they want the bot to have. e.g condition = Bot it will be nice if you have -- some function--. Proccess - Store the function in a file for future implementation to the bot.
 
@@ -134,7 +146,7 @@ bot.on('message', function(message){
 
   //TODO Create a void method to separate the code from here
 
-  // TODO Condition = How to use the boot. Response = Step by step on how to use the bot
+  // TODO Condition = How to use the bot. Response = Step by step on how to use the bot
 
   // TODO Condition = What the bot can do. Create a Response for this
 
