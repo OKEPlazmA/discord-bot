@@ -46,11 +46,37 @@ bot.on('message', function(message) {
                 return_chained_words: false,
                 remove_duplicates: true
             });
-            if (channelId = 245393630624350209) { //DEVBOT CHANNEL245373360215818240
+            //Additional support for getting channels better search resutls
+            if (channelId = 245373360215818240) { //DEVBOT CHANNEL245373360215818240
                 channelTags = extraction_result.concat("bot", "node.js", "javascript", "discord");
             } else if (channelId = 207559045530255360) { //iOS 10 course CHANNEL
-                channelTags = extraction_result.concat("iOS", "swift", "xcode", "iOS10");
+                channelTags = extraction_result.concat("iOS", "swift", "iphone", "xcode", "iOS10");
+            } else if (channelId = 129421763439230977) { //ANDROID course CHANNEL
+                channelTags = extraction_result.concat("Android", "java", "xml", "android studio");
+            } else if (channelId = 116408187288027141) { //iOS course CHANNEL
+                channelTags = extraction_result.concat("ios", "ios10", "iphone", "xcode", "swift");
+            } else if (channelId = 236187750900957194) { //Unity 3D course CHANNEL
+                channelTags = extraction_result.concat("unity3d", "c#", "iphone", "c++");
+            } else if (channelId = 116408213208825864) { //TV OS course CHANNEL
+                channelTags = extraction_result.concat("javascript", "tvos", "swift", "apple-tv");
+            } else if (channelId = 116408248675991554) { //WATCH OS course CHANNEL
+                channelTags = extraction_result.concat("swift", "watchos", "xcode", "iphone", "ios10");
+            } else if (channelId = 116410895155986437) { //SWIFT CHANNEL
+                channelTags = extraction_result.concat("swift", "xcode", "iphone", "ios10");
+            } else if (channelId = 116410953079324673) { //OBJC course CHANNEL
+                channelTags = extraction_result.concat("objc", "xcode", "iphone", "ios10", "objectivec", "objective-c");
+            } else if (channelId = 123923261326229504) { //WEB DEV course CHANNEL
+                channelTags = extraction_result.concat("react", "javascript", "react.js", "html", "css", "jquery", "sql", "mysql", "python");
+            } else if (channelId = 131116113001054208) { //ANDROID CHANNEL
+                channelTags = extraction_result.concat("Android", "java", "xml", "Android Studio");
+            } else if (channelId = 116413405199466503) { //iOS 9 course CHANNEL
+                channelTags = extraction_result.concat("iOS", "swift", "iphone", "xcode", "ios9");
+            } else if (channelId = 187915743998771200) { //FIREBASE CHANNEL
+                channelTags = extraction_result.concat("firebase");
+            } else if (channelId = 162230646578741249) { //COURSE INTERMEDIATE CHANNEL
+                channelTags = extraction_result.concat("ios", "ios9", "iphone");
             }
+
             console.log(channelTags);
             var options = {
                 version: 2.2
@@ -66,7 +92,8 @@ bot.on('message', function(message) {
             };
 
             // Get all the questions (http://api.stackexchange.com/docs/questions)
-            context.search.search(filter, function(err, results) {
+            //search.search
+            context.questions.questions(filter, function(err, results) {
                 if (results) {
                     if (results.items) {
 
@@ -203,4 +230,5 @@ function handleRequest(request, response) {
     server.listen(PORT, function() {
         //Callback triggered when server is successfully listening. Hurray!
         console.log("Server listening on: http://localhost:%s", PORT);
-    });
+    })
+}
