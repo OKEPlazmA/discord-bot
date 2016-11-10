@@ -1,7 +1,6 @@
 var Discord = require('discord.js');
 var stackexchange = require('stackexchange');
 var keyword_extractor = require("keyword-extractor");
-var Discord = require('discord.js');
 
 //Lets require/import the HTTP module
  var http = require('http');
