@@ -5,10 +5,10 @@ var keyword_extractor = require("keyword-extractor");
 
 
 //Lets require/import the HTTP module
-var http = require('http');
-var bodyParser = require('body-parser');
+ var http = require('http');
+// var bodyParser = require('body-parser');
 // to make https request e.g get,post,put,delete
-var request = require('request');
+// var request = require('request');
 
 //Use Body parser
 //app.use(bodyParser.json());
@@ -129,6 +129,11 @@ bot.on('message', function(message) {
 
     if ((input.includes("HELLO"))) {}
 
+ // Optimize this search on google
+  if (input === "BOTAI"){
+    message.reply("https://google.com/search?q="+input);
+}
+
     // TODO: Search a Question in Google
     if (input.includes("QUESTION")) {}
 
@@ -188,7 +193,9 @@ bot.on('message', function(message) {
 });
 
 //Login to Discord using oauth
-bot.login('TOKEN CODE');
+
+bot.login('TOKEN_KEY');
+
 //*************  Node Js Server  ************************//
 
 //Lets define a port we want to listen to
