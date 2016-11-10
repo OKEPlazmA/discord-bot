@@ -27,25 +27,6 @@ var nontagged = "objective%20c"
 // bot client
 const bot = new Discord.Client();
 
-//TODO Error
-const newUsers = [];
-
-bot.on("guildMemberAdd", (guild, member) => {
-  if(!newUsers[guild.id]) newUsers[guild.id] = new Discord.Collection();
-  newUsers[guild.id].set(member.user.id, member.user);
-
-  if(newUsers[guild.id].size >= 1) {
-    var userlist = newUsers[guild.id].map(u => u.mention()).join(" ");
-    guild.channels.get(guild.id).sendMessage("Welcome our new users!\n"+userlist);
-    newUsers[guild.id] = new Discord.Collection();
-  }
-
-bot.on("guildMemberRemove", (guild, member) => {
-  if(newUsers[guild.id].exists("id", member.user.id)) newUsers.delete(member.user.id);
-});
-
-});
-
 // This will run whenever the bot get a message. / whenever a message is sent to a server that it is in
 bot.on('message', function(message) {
     let prefix = '!';
@@ -188,6 +169,8 @@ bot.on('message', function(message) {
         message.author.sendMessage("Android: http://bit.ly/2flDQFk");
     }
 
+    //TODO Welcome message to all new members of the comunity
+
     //TODO Event that store in a file when people give a new Suggestion that they want the bot to have. e.g condition = Bot it will be nice if you have -- some function--. Proccess - Store the function in a file for future implementation to the bot.
 
     //TODO Create a void method to separate the code from here
@@ -205,7 +188,7 @@ bot.on('message', function(message) {
 });
 
 //Login to Discord using oauth
-bot.login('MjQ1MzkwMDg0NDgyOTI0NTQ2.CwQefg.p2rkiB8vIb5WHjbCyfCE3K1DA4s');
+bot.login('TOKEN CODE');
 //*************  Node Js Server  ************************//
 
 //Lets define a port we want to listen to
