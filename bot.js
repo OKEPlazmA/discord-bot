@@ -36,6 +36,7 @@ bot.on('message', function(message) {
     if (input.indexOf('?') > -1) {
         var sentence = message.content;
         if (sentence != "?") {
+            var channelTags = [];
             var extraction_result = keyword_extractor.extract(sentence, {
                 language: "english",
                 remove_digits: true,
@@ -43,13 +44,19 @@ bot.on('message', function(message) {
                 return_chained_words: false,
                 remove_duplicates: true
             });
+            if (channelId = 245393630624350209) { //DEVBOT CHANNEL245373360215818240
+                channelTags = extraction_result.concat("bot", "node.js", "javascript", "discord");
+            } else if (channelId = 207559045530255360) { //iOS 10 course CHANNEL
+                channelTags = extraction_result.concat("iOS", "swift", "xcode", "iOS10");
+            }
+            console.log(channelTags);
             var options = {
                 version: 2.2
             };
             var context = new stackexchange(options);
 
             var filter = {
-                key: 'YOUR KEY HERE', //PUT THE KEY TO STACKEXCHANGE HERE!!!!!!!!!!
+                key: 'lSCrDdqvXp3Bru)3satyHw((', //PUT THE KEY TO STACKEXCHANGE HERE!!!!!!!!!!
                 pagesize: 50,
                 tagged: extraction_result,
                 sort: 'activity',
@@ -60,10 +67,12 @@ bot.on('message', function(message) {
             context.search.search(filter, function(err, results) {
                 if (results) {
                     if (results.items) {
+
                         if (results.items[0].link) {
                             message.reply('Checkout this link ' + (results.items[0].link));
                         }
                         console.log(results.items);
+
                     }
                     //message.reply('Checkout this link ' + (results.items[1].link));
                     if (results.has_more) {
