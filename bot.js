@@ -48,33 +48,33 @@ bot.on('message', function(message) {
             });
             //
             //Additional support for getting channels better search resutls
-            if (channelId = 116404983234035716) { //DEVBOT CHANNEL245373360215818240
-                channelTags = extraction_result.concat("bot", "node.js", "javascript", "discord");
-            } else if (channelId = 207559045530255360) { //iOS 10 course CHANNEL
-                channelTags = extraction_result.concat("iOS", "swift", "iphone", "xcode", "iOS10");
-            } else if (channelId = 129421763439230977) { //ANDROID course CHANNEL
-                channelTags = extraction_result.concat("Android", "java", "xml", "android studio");
-            } else if (channelId = 116408187288027141) { //iOS course CHANNEL
-                channelTags = extraction_result.concat("ios", "ios10", "iphone", "xcode", "swift");
-            } else if (channelId = 236187750900957194) { //Unity 3D course CHANNEL
+            if (Discord.Channel.id === 245373360215818240) { //DEVBOT CHANNEL116404983234035716
+                channelTags === extraction_result.concat("bot", "node.js", "javascript", "discord");
+            } else if (Discord.Channel.id === 207559045530255360) { //iOS 10 course CHANNEL
+                channelTags === extraction_result.concat("iOS", "swift", "iphone", "xcode", "iOS10");
+            } else if (Discord.Channel.id === 129421763439230977) { //ANDROID course CHANNEL
+                channelTags === extraction_result.concat("Android", "java", "xml", "android studio");
+            } else if (Discord.Channel.id === 116408187288027141) { //iOS course CHANNEL
+                channelTags === extraction_result.concat("ios", "ios10", "iphone", "xcode", "swift");
+            } else if (Discord.Channel.id === 236187750900957194) { //Unity 3D course CHANNEL
                 channelTags = extraction_result.concat("unity3d", "c#", "iphone", "c++");
-            } else if (channelId = 116408213208825864) { //TV OS course CHANNEL
+            } else if (Discord.Channel.id === 116408213208825864) { //TV OS course CHANNEL
                 channelTags = extraction_result.concat("javascript", "tvos", "swift", "apple-tv");
-            } else if (channelId = 116408248675991554) { //WATCH OS course CHANNEL
+            } else if (Discord.Channel.id === 116408248675991554) { //WATCH OS course CHANNEL
                 channelTags = extraction_result.concat("swift", "watchos", "xcode", "iphone", "ios10");
-            } else if (channelId = 116410895155986437) { //SWIFT CHANNEL
+            } else if (Discord.Channel.id === 116410895155986437) { //SWIFT CHANNEL
                 channelTags = extraction_result.concat("swift", "xcode", "iphone", "ios10");
-            } else if (channelId = 116410953079324673) { //OBJC course CHANNEL
+            } else if (Discord.Channel.id === 116410953079324673) { //OBJC course CHANNEL
                 channelTags = extraction_result.concat("objc", "xcode", "iphone", "ios10", "objectivec", "objective-c");
-            } else if (channelId = 123923261326229504) { //WEB DEV course CHANNEL
+            } else if (Discord.Channel.id === 123923261326229504) { //WEB DEV course CHANNEL
                 channelTags = extraction_result.concat("react", "javascript", "react.js", "html", "css", "jquery", "sql", "mysql", "python");
-            } else if (channelId = 131116113001054208) { //ANDROID CHANNEL
+            } else if (Discord.Channel.id === 131116113001054208) { //ANDROID CHANNEL
                 channelTags = extraction_result.concat("Android", "java", "xml", "Android Studio");
-            } else if (channelId = 116413405199466503) { //iOS 9 course CHANNEL
+            } else if (Discord.Channel.id === 116413405199466503) { //iOS 9 course CHANNEL
                 channelTags = extraction_result.concat("iOS", "swift", "iphone", "xcode", "ios9");
-            } else if (channelId = 187915743998771200) { //FIREBASE CHANNEL
+            } else if (Discord.Channel.id === 187915743998771200) { //FIREBASE CHANNEL
                 channelTags = extraction_result.concat("firebase");
-            } else if (channelId = 162230646578741249) { //COURSE INTERMEDIATE CHANNEL
+            } else if (Discord.Channel.id === 162230646578741249) { //COURSE INTERMEDIATE CHANNEL
                 channelTags = extraction_result.concat("ios", "ios9", "iphone");
             }
 
@@ -86,22 +86,24 @@ bot.on('message', function(message) {
 
             var filter = {
                 key: 'lSCrDdqvXp3Bru)3satyHw((', //PUT THE KEY TO STACKEXCHANGE HERE!!!!!!!!!!
-                pagesize: 50,
                 tagged: extraction_result,
-                sort: 'activity',
-                order: 'asc'
+                sort: 'relevance',
+                order: 'desc'
             };
 
             // Get all the questions (http://api.stackexchange.com/docs/questions)
             //search.search
             context.questions.questions(filter, function(err, results) {
+                console.log(results.items);
+            })
+            /*context.questions.answers(filter, function(err, results) {
                 if (results) {
                     if (results.items) {
 
                         if (results.items[0].link) {
-                            message.reply('Checkout this link ' + (results.items[0].link));
+                            message.reply('Checkout this link ' + (results.items[1].link));
                         }
-                        console.log(results.items);
+                        //console.log(results.items);
 
                     }
                     //message.reply('Checkout this link ' + (results.items[1].link));
@@ -109,7 +111,7 @@ bot.on('message', function(message) {
                         console.log('The bot will say please do some research on your own there are alot of articles on this subject');
                     }
                 }
-            });
+            });*/
         }
     }
     //Making call to Stackexchange
