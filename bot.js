@@ -120,16 +120,14 @@ bot.on('message', function(message) {
 
     if ((input.includes("Hello"))) {}
 
-<<<<<<< HEAD
-// Optimize this search on google
-if (input === "BOTAI"){
-  message.reply("https://google.com/search?q="+input);
+ // Optimize this search on google
+  if (input === "BOTAI"){
+    message.reply("https://google.com/search?q="+input);
 }
 
-=======
     // TODO: Search a Question in Google
     if (input.includes("Question")) {}
->>>>>>> 696b6f05f40d6d2b35046ce68fda1c4b74f27a77
+
 
     //safety check so bot doesn't accidentally reply to non commands
     if (!message.content.startsWith(prefix))
