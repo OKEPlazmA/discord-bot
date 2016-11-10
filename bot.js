@@ -13,7 +13,6 @@ var request = require('request');
 //app.use(bodyParser.json());
 
 // Get method with the tittle of the variable question
-
 var StackOverflowSearchUrl = 'https://api.stackexchange.com/2.2/search?order=desc&sort=activity&tagged=' + tags + '&nottagged=' + nontagged + '&intitle=' + question + '&site=stackoverflow';
 
 // search by tittle in the question
@@ -23,7 +22,7 @@ var question = "breakpoint";
 var tags = "swift";
 // dont search a question with this tag
 var nontagged = "objective%20c"
-//
+
 // bot client
 const bot = new Discord.Client();
 
@@ -34,7 +33,6 @@ bot.on('message', function(message) {
     var input = message.content.toUpperCase();
 
     //making a call to stackoverflow
-    //
     if (input.indexOf('?') > -1) {
         var sentence = message.content;
         if (sentence != "?") {
@@ -99,23 +97,23 @@ bot.on('message', function(message) {
     if (condition4 || condition3 || condition5) {
         //Message - is the channel that it will be sent to
         // String - Te content of the mesage that will be sent
-        message.reply("yes it's free for Kickstarter backer who pledge above $100");
+        message.reply("Yes it's free for Kickstarter backer who pledge above $100.");
     }
 
     if (lateEvent) {
-        message.reply("yeah email jason@devslope.com for more info");
+        message.reply("Yeah email jason@devslope.com for more info.");
     }
 
-    if (input === "I AM PRETTY" || input === "I AM PRETTY ?") {
-        message.reply("Yes. You are always Pretty. Keep Smiling. ");
+    if (input === "I AM PRETTY" || input === "I AM PRETTY?") {
+        message.reply("Yes. You are always Pretty. Keep Smiling.");
     }
 
     if (input === "BOT WHO ARE YOU") {
-        message.reply("I'm here to help you to become a better developer. I am a work in progress");
+        message.reply("I'm here to help you to become a better developer. I am a work in progress.");
     }
 
     if ((input.includes("LOVING") || input.includes("LIKE")) && input.includes("BOT")) {
-        message.reply("Thank you. You are way cooler than me");
+        message.reply("Thank you. You are way cooler than me.");
     }
 
     if ((input.includes("Hello"))) {}
