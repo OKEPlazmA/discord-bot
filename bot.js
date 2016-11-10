@@ -46,8 +46,9 @@ bot.on('message', function(message) {
                 return_chained_words: false,
                 remove_duplicates: true
             });
+            //
             //Additional support for getting channels better search resutls
-            if (channelId = 245373360215818240) { //DEVBOT CHANNEL245373360215818240
+            if (channelId = 116404983234035716) { //DEVBOT CHANNEL245373360215818240
                 channelTags = extraction_result.concat("bot", "node.js", "javascript", "discord");
             } else if (channelId = 207559045530255360) { //iOS 10 course CHANNEL
                 channelTags = extraction_result.concat("iOS", "swift", "iphone", "xcode", "iOS10");
