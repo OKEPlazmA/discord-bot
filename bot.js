@@ -1,4 +1,4 @@
-var Discord = require ('discord.js')
+var Discord = require('discord.js')
 var stackexchange = require('stackexchange');
 var keyword_extractor = require("keyword-extractor");
 var zlib = require('zlib');
@@ -21,7 +21,7 @@ var question = "breakpoint";
 var tags = "swift";
 // dont search a question with this tag
 var nontagged = "objective%20c"
-
+//
 // bot client
 const bot = new Discord.Client();
 
