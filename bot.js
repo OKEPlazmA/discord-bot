@@ -1,9 +1,9 @@
 var Discord = require ('discord.js');
 //Lets require/import the HTTP module
-var http = require('http');
-var bodyParser = require('body-parser');
+ var http = require('http');
+// var bodyParser = require('body-parser');
 // to make https request e.g get,post,put,delete
-var request = require('request');
+// var request = require('request');
 
 //Use Body parser
 //app.use(bodyParser.json());
@@ -21,19 +21,6 @@ var nontagged = "objective%20c"
 
 // bot client
 const bot = new Discord.Client();
-
-
- // TODO Parse JSON From StackOverflowSearchUrl
-request(StackOverflowSearchUrl, function (error, response, body) {
-  if (!error && response.statusCode == 200) {
-    console.log("Parse Json Here");
-    //  console.log(body) // Show the HTML for the Google homepage.
-    // var info = JSON.parse(body);
-    // console.log(info.items[0])
-
-  }
-})
-
 
 
 // This will run whenever the bot get a message. / whenever a message is sent to a server that it is in
@@ -74,6 +61,11 @@ bot.on('message', function(message){
       message.reply("I'm here to help you to become a better developer. I am a work in progress");
   }
 
+// Optimize this search on google
+if (input === "BOTAI"){
+  message.reply("https://google.com/search?q="+input);
+}
+
 
   if( (input.includes("LOVING") || input.includes("LIKE")) && input.includes("BOT") ) {
       message.reply("Thank you. You are way cooler than me");
@@ -91,23 +83,23 @@ bot.on('message', function(message){
   //safety check so bot doesn't accidentally reply to non commands
   if(!message.content.startsWith(prefix)) return;
   //prevent the bot from issuing commands
-  if(message.author.bot) return;  
-  
-  
+  if(message.author.bot) return;
+
+
   //!help displays all available commands
   let help = [ "courses",
     "coupon"
   ];
-  
+
   if (message.content.startsWith(prefix + 'help')) {
     message.author.sendMessage("Here is a list of available commands:");
-    
+
     for (var i in help) {
       message.author.sendMessage(prefix + help[i]);
     }
   }
-  
-  
+
+
   //!courses lists all courses in a message
   if (message.content.startsWith(prefix + 'courses')) {
     message.author.sendMessage("Here is a list of Devslopes courses:");
@@ -119,8 +111,8 @@ bot.on('message', function(message){
     message.author.sendMessage("https://www.udemy.com/apple-tv/");
     message.author.sendMessage("https://www.udemy.com/ios9-swift/");
   }
-  
-  
+
+
   //!coupon to display coupon for courses
   if (message.content.startsWith(prefix + 'coupon')) {
     message.author.sendMessage("iOS: http://bit.ly/2eu6XGC");
