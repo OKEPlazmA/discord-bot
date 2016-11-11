@@ -80,12 +80,18 @@ bot.on('message', function(message) {
     var lateEvent = input.includes("LATE") && input.includes("PLEDGE");
     var book = input.includes("DEVSLOPE") && input.includes("BOOK") && input.includes("DEVSLOPES");
     var unityClass = input.includes("UNITY") && input.includes("UDEMY") && input.includes("WHERE");
-    var stickers = input.includes("STICKERS") && inmput.includes("DEVSLOPE") && inmput.includes("DEVSLOPES");
+    var stickers = input.includes("STICKERS") && input.includes("DEVSLOPE") && inmput.includes("DEVSLOPES");
+    var macApp = input.includes("MAC") && input.includes("APP") && input.includes("DEVSLOPE") && inmput.includes("DEVSLOPES");
+    var appleTVApp = input.include("APPLE") && input.includes("TV") && input.includes("DEVSLOPE") && inmput.includes("DEVSLOPES");
 
     if (condition4 || condition3 || condition5) {
         //Message - is the channel that it will be sent to
         // String - Te content of the mesage that will be sent
         message.reply("Yes it's free for Kickstarter backer who pledge above $100.");
+    }
+
+    if (macAPP) || (appleTVApp) {
+      message.reply("The Mac and Apple TV app will be out by the end of the year.")
     }
 
     if (lateEvent) {
@@ -169,8 +175,6 @@ bot.on('message', function(message) {
     //TODO Condition = I can get all the course that I paid in Udmey within the Desvlope app. Proccess = str.includes("COURSE") && str.includes("UDEMY") && str.includes("DEVSLOPE APP"). Response = No --Custom Response--
 
     //TODO Make a Grahical User Interface to add condition and Response an validate the input instead of adding each condition and Response in code.
-
-    //TODO condition = when the --mac app-- --devslope mac app-- will be ready. response = the mac app will be ready in december 31
 
 });
 
