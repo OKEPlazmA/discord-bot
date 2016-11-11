@@ -78,6 +78,7 @@ bot.on('message', function(message) {
     var condition5 = input.includes("BACKER") && input.includes("COURSE");
 
     var lateEvent = input.includes("LATE") && input.includes("PLEDGE");
+    var book = input.includes("DEVSLOPE") && input.includes("BOOK") && input.includes("DEVSLOPES");
 
     if (condition4 || condition3 || condition5) {
         //Message - is the channel that it will be sent to
@@ -87,6 +88,10 @@ bot.on('message', function(message) {
 
     if (lateEvent) {
         message.reply("Yes email jason@devslope.com for more info.");
+    }
+
+    if (book) {
+      message.reply("Yes email jason@devslope.com for more info.");
     }
 
     if (input === "I AM PRETTY" || input === "I AM PRETTY ?") {
@@ -103,7 +108,7 @@ bot.on('message', function(message) {
 
     if (input.includes("HELLO")) {}
 
-    // TODO: Search a Question in Google
+    //TODO Search a Question in Google
     if (input.includes("QUESTION")) {}
 
     //safety check so bot doesn't accidentally reply to non commands
@@ -144,8 +149,6 @@ bot.on('message', function(message) {
     }
 
     //TODO Event that store in a file when people give a new Suggestion that they want the bot to have. e.g condition = Bot it will be nice if you have -- some function--. Proccess - Store the function in a file for future implementation to the bot.
-
-    //TODO Condition = Hi I can still get the -devslope- -iOS- -Kickstarter- book  . where I can buy the -devslope- book. Response = "Yes you can buy the book email jason@devslope.com"
 
     //TODO Create a void method to separate the code from here
 
