@@ -125,18 +125,18 @@ bot.on('message', function(message) {
     }
 
     if (input === "BOT WHO ARE YOU") {
-        message.reply("I'm here to help you to become a better developer. I am a work in progress");
+        message.reply("I'm here to help you to become a better developer. Say help for all my commands. (I am a work in progress)");
     }
 
     if ((input.includes("LOVING") || input.includes("LIKE")) && input.includes("BOT")) {
         message.reply("Thank you. You are way cooler than me");
     }
 
-    if (input.includes("HELLO")) {
+    if (input.includes("HELLO BOT")) {
       message.reply("Hello!");
     }
 
-    if (input.includes("HI")) {
+    if (input.includes("HI BOT")) {
       message.reply("Hello!");
     }
 
@@ -196,8 +196,6 @@ bot.on('message', function(message) {
 
     //TODO Implament Google
 
-    //TODO Welcome to new members
-
     //TODO  Make the bot search a video in youtube using the youtube API
 
     //TODO Event that store in a file when people give a new Suggestion that they want the bot to have. e.g condition = Bot it will be nice if you have -- some function--. Proccess - Store the function in a file for future implementation to the bot.
@@ -209,7 +207,7 @@ bot.on('message', function(message) {
 });
 
 bot.on("guildMemberAdd", (member) => {
-    member.guild.defaultChannel.sendMessage("Greetings " + member.user + ". Welcome to Devslopes!")
+    member.guild.defaultChannel.sendMessage("Hello " + member.user + " Welcome to Devslopes!")
 });
 
 //Login to Discord using oauth
