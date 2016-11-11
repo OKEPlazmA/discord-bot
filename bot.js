@@ -186,10 +186,10 @@ bot.on('message', function(message) {
       message.reply("Ask me a question and I will look for a answer, otherwise ask for help.");
     }
 
-    //List all comands
-    if (input.includes("HELP")) {
-      message.reply("Here is a list of that I (Devslopes Bot) can do!");
-    }
+    //List all comands this command is already included in the !help command
+    // if (input.includes("HELP")) {
+    //   message.reply("Here is a list of that I (Devslopes Bot) can do!");
+    // }
 
     //TODO Fix Kickstarter pledge
 
@@ -212,7 +212,7 @@ bot.on("guildMemberAdd", (member) => {
 });
 
 //Login to Discord using oauth
-bot.login('MjQ1NjI0NzI4NDMyMTQ4NDgy.CwOzaQ.yB4TBGLmU9QMZcQrYt1aed3xZ20'); //MjQ1NjI0NzI4NDMyMTQ4NDgy.CwOzaQ.yB4TBGLmU9QMZcQrYt1aed3xZ20
+bot.login('Token Key '); 
 //*************  Node Js Server  ************************//
 
 //Lets define a port we want to listen to
