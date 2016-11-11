@@ -1,6 +1,8 @@
+'use strict'; // enables ES6 syntax
 var Discord = require('discord.js');
 var stackexchange = require('stackexchange');
 var keyword_extractor = require("keyword-extractor");
+
 
 //Lets require/import the HTTP module
  var http = require('http');
@@ -12,7 +14,6 @@ var keyword_extractor = require("keyword-extractor");
 //app.use(bodyParser.json());
 
 // Get method with the tittle of the variable question
-
 var StackOverflowSearchUrl = 'https://api.stackexchange.com/2.2/search?order=desc&sort=activity&tagged=' + tags + '&nottagged=' + nontagged + '&intitle=' + question + '&site=stackoverflow';
 
 // search by tittle in the question
@@ -22,7 +23,7 @@ var question = "breakpoint";
 var tags = "swift";
 // dont search a question with this tag
 var nontagged = "objective%20c"
-//
+
 // bot client
 const bot = new Discord.Client();
 
@@ -33,7 +34,6 @@ bot.on('message', function(message) {
     var input = message.content.toUpperCase();
 
     //making a call to stackoverflow
-    //
     if (input.indexOf('?') > -1) {
         var sentence = message.content;
         if (sentence != "?") {
@@ -94,30 +94,40 @@ bot.on('message', function(message) {
     var condition5 = input.includes("BACKER") && input.includes("COURSE");
 
     var lateEvent = input.includes("LATE") && input.includes("PLEDGE");
+    var book = input.includes("BOOK") && input.includes("HOW")
+    var book2 = input.includes("BOOK") && input.includes("WHEN")
 
     if (condition4 || condition3 || condition5) {
         //Message - is the channel that it will be sent to
         // String - Te content of the mesage that will be sent
-        message.reply("yes it's free for Kickstarter backer who pledge above $100");
+        message.reply("Yes it's free for Kickstarter backer who pledge above $100.");
     }
 
     if (lateEvent) {
-        message.reply("yeah email jason@devslope.com for more info");
+        message.reply("Yeah email jason@devslope.com for more info.");
     }
 
-    if (input === "I AM PRETTY" || input === "I AM PRETTY ?") {
-        message.reply("Yes. You are always Pretty. Keep Smiling. ");
+    if (book) {
+      message.reply("Yeah email jason@devslope.com for more info.")
+    }
+
+    if (book2) {
+      message.reply("The Devslops book should be out by Nov 30th.")
+    }
+
+    if (input === "I AM PRETTY" || input === "I AM PRETTY?") {
+        message.reply("Yes. You are always Pretty. Keep Smiling.");
     }
 
     if (input === "BOT WHO ARE YOU") {
-        message.reply("I'm here to help you to become a better developer. I am a work in progress");
+        message.reply("I'm here to help you to become a better developer. I am a work in progress.");
     }
 
     if ((input.includes("LOVING") || input.includes("LIKE")) && input.includes("BOT")) {
-        message.reply("Thank you. You are way cooler than me");
+        message.reply("Thank you. You are way cooler than me.");
     }
 
-    if ((input.includes("Hello"))) {}
+    if ((input.includes("HELLO"))) {}
 
  // Optimize this search on google
   if (input === "BOTAI"){
@@ -125,8 +135,7 @@ bot.on('message', function(message) {
 }
 
     // TODO: Search a Question in Google
-    if (input.includes("Question")) {}
-
+    if (input.includes("QUESTION")) {}
 
     //safety check so bot doesn't accidentally reply to non commands
     if (!message.content.startsWith(prefix))
@@ -165,15 +174,15 @@ bot.on('message', function(message) {
         message.author.sendMessage("Android: http://bit.ly/2flDQFk");
     }
 
-    // TODO Event that store in a file when people give a new Suggestion that they want the bot to have. e.g condition = Bot it will be nice if you have -- some function--. Proccess - Store the function in a file for future implementation to the bot.
+    //TODO Welcome message to all new members of the comunity
 
-    // TODO Condition = Hi I can still get the -devslope- -iOS- -Kickstarter- book  . where I can buy the -devslope- book. Response = "Yes you can buy the book email jason@devslope.com"
+    //TODO Event that store in a file when people give a new Suggestion that they want the bot to have. e.g condition = Bot it will be nice if you have -- some function--. Proccess - Store the function in a file for future implementation to the bot.
 
     //TODO Create a void method to separate the code from here
 
-    // TODO Condition = How to use the boot. Response = Step by step on how to use the bot
+    //TODO Condition = How to use the boot. Response = Step by step on how to use the bot
 
-    // TODO Condition = What the bot can do. Create a Response for this
+    //TODO Condition = What the bot can do. Create a Response for this
 
     //TODO Condition = I can get all the course that I paid in Udmey within the Desvlope app. Proccess = str.includes("COURSE") && str.includes("UDEMY") && str.includes("DEVSLOPE APP"). Response = No --Custom Response--
 
@@ -184,7 +193,9 @@ bot.on('message', function(message) {
 });
 
 //Login to Discord using oauth
+
 bot.login('TOKEN_KEY');
+
 //*************  Node Js Server  ************************//
 
 //Lets define a port we want to listen to
