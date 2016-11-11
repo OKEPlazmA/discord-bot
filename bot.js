@@ -79,6 +79,7 @@ bot.on('message', function(message) {
 
     var lateEvent = input.includes("LATE") && input.includes("PLEDGE");
     var book = input.includes("DEVSLOPE") && input.includes("BOOK") && input.includes("DEVSLOPES");
+    var unityClass = input.includes("UNITY") && input.includes("UDEMY") && input.includes("WHERE")
 
     if (condition4 || condition3 || condition5) {
         //Message - is the channel that it will be sent to
@@ -92,6 +93,10 @@ bot.on('message', function(message) {
 
     if (book) {
       message.reply("Yes email jason@devslope.com for more info.");
+    }
+
+    if (unityClass) {
+      message.reply("It will be on udemy. Then on the Devslopes app in the coming weeks.");
     }
 
     if (input === "I AM PRETTY" || input === "I AM PRETTY ?") {
