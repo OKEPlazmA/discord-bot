@@ -183,7 +183,7 @@ bot.on('message', function(message) {
     }
 
     //Help on how to bot
-    if (input.includes("HOW") && ) input.includes("BOT"){
+    if (input.includes("HOW") && input.includes("BOT")){
       message.reply("Ask me a question and I will look for a answer, otherwise ask for help.");
     }
 
@@ -198,7 +198,7 @@ bot.on('message', function(message) {
 
     //TODO Welcome to new members
 
-    //TODO  Make the bot search a video in youtube using the youtube API 
+    //TODO  Make the bot search a video in youtube using the youtube API
 
     //TODO Event that store in a file when people give a new Suggestion that they want the bot to have. e.g condition = Bot it will be nice if you have -- some function--. Proccess - Store the function in a file for future implementation to the bot.
 
@@ -206,6 +206,10 @@ bot.on('message', function(message) {
 
     //TODO Make a Grahical User Interface to add condition and Response an validate the input instead of adding each condition and Response in code.
 
+});
+
+bot.on("guildMemberAdd", (member) => {
+    member.guild.defaultChannel.sendMessage("Greetings " + member.user + ". Welcome to Devslopes!")
 });
 
 //Login to Discord using oauth
