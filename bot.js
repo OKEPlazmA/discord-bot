@@ -161,7 +161,7 @@ bot.on('message', function(message) {
 
 });
 //Login to Discord using oauth
-bot.login('MjQ1MzkwMDg0NDgyOTI0NTQ2.CwQefg.p2rkiB8vIb5WHjbCyfCE3K1DA4s');
+bot.login('MjQ1MzkwMDg0NDgyOTI0NTQ2.CwQefg.p2rkiB8vIb5WHjbCyfCE3K1DA4s'); //MjQ1NjI0NzI4NDMyMTQ4NDgy.CwOzaQ.yB4TBGLmU9QMZcQrYt1aed3xZ20
 //*************  Node Js Server  ************************//
 
 //Lets define a port we want to listen to
