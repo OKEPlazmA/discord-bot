@@ -83,6 +83,7 @@ bot.on('message', function(message) {
     var stickers = input.includes("STICKERS") && input.includes("DEVSLOPE") && inmput.includes("DEVSLOPES");
     var macApp = input.includes("MAC") && input.includes("APP") && input.includes("DEVSLOPE") && inmput.includes("DEVSLOPES");
     var appleTVApp = input.include("APPLE") && input.includes("TV") && input.includes("DEVSLOPE") && inmput.includes("DEVSLOPES");
+    var udemyDevApp = input.include("UDEMY") && input.include("DEVSLOPES APP")
 
     if (condition4 || condition3 || condition5) {
         //Message - is the channel that it will be sent to
@@ -100,6 +101,10 @@ bot.on('message', function(message) {
 
     if (book) {
       message.reply("Yes email jason@devslope.com for more info.");
+    }
+
+    if (udemyDevApp) {
+      message.reply("No, unless you are a Kickstarted backer the classes do not transfer between Udemy and the Devslopes App.")
     }
 
     if (unityClass) {
@@ -171,8 +176,6 @@ bot.on('message', function(message) {
     //TODO Condition = How to use the boot. Response = Step by step on how to use the bot
 
     //TODO Condition = What the bot can do. Create a Response for this
-
-    //TODO Condition = I can get all the course that I paid in Udmey within the Desvlope app. Proccess = str.includes("COURSE") && str.includes("UDEMY") && str.includes("DEVSLOPE APP"). Response = No --Custom Response--
 
     //TODO Make a Grahical User Interface to add condition and Response an validate the input instead of adding each condition and Response in code.
 
