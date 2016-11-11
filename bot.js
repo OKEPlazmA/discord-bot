@@ -79,7 +79,8 @@ bot.on('message', function(message) {
 
     var lateEvent = input.includes("LATE") && input.includes("PLEDGE");
     var book = input.includes("DEVSLOPE") && input.includes("BOOK") && input.includes("DEVSLOPES");
-    var unityClass = input.includes("UNITY") && input.includes("UDEMY") && input.includes("WHERE")
+    var unityClass = input.includes("UNITY") && input.includes("UDEMY") && input.includes("WHERE");
+    var stickers = input.includes("STICKERS") && inmput.includes("DEVSLOPE") && inmput.includes("DEVSLOPES");
 
     if (condition4 || condition3 || condition5) {
         //Message - is the channel that it will be sent to
@@ -97,6 +98,10 @@ bot.on('message', function(message) {
 
     if (unityClass) {
       message.reply("It will be on udemy. Then on the Devslopes app in the coming weeks.");
+    }
+
+    if (stickers) {
+      message.reply("https://itunes.apple.com/us/app/hacker-pack-coding-nerd-stickers/id1154247796?mt=8");
     }
 
     if (input === "I AM PRETTY" || input === "I AM PRETTY ?") {
