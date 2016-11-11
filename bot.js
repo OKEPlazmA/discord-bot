@@ -78,21 +78,26 @@ bot.on('message', function(message) {
     var condition5 = input.includes("BACKER") && input.includes("COURSE");
 
     var lateEvent = input.includes("LATE") && input.includes("PLEDGE");
-    var book = input.includes("DEVSLOPE") && input.includes("BOOK") && input.includes("DEVSLOPES");
-    var unityClass = input.includes("UNITY") && input.includes("UDEMY") && input.includes("WHERE");
-    var stickers = input.includes("STICKERS") && input.includes("DEVSLOPE") && inmput.includes("DEVSLOPES");
-    var macApp = input.includes("MAC") && input.includes("APP") && input.includes("DEVSLOPE") && inmput.includes("DEVSLOPES");
-    var appleTVApp = input.include("APPLE") && input.includes("TV") && input.includes("DEVSLOPE") && inmput.includes("DEVSLOPES");
-    var udemyDevApp = input.include("UDEMY") && input.include("DEVSLOPES APP")
+    var book = input.includes("DEVSLOPE") && input.includes("BOOK");
+    var unityClass = input.includes("UNITY") && input.includes("WHERE");
+    var stickers = input.includes("STICKERS") && input.includes("DEVSLOPE");
+    var macApp = input.includes("MAC") && input.includes("APP");
+    var appleTVApp = input.includes("APPLE") && input.includes("TV") && input.includes("APP");
+    var udemyDevApp = input.includes("UDEMY") && input.includes("DEVSLOPE");
 
+    //TODO FIX
     if (condition4 || condition3 || condition5) {
         //Message - is the channel that it will be sent to
         // String - Te content of the mesage that will be sent
         message.reply("Yes it's free for Kickstarter backer who pledge above $100.");
     }
 
-    if (macAPP) || (appleTVApp) {
-      message.reply("The Mac and Apple TV app will be out by the end of the year.")
+    if (macApp) {
+      message.reply("The Mac and Apple TV app will be out by the end of the year.");
+    }
+
+    if (appleTVApp) {
+      message.reply("The Mac and Apple TV app will be out by the end of the year.");
     }
 
     if (lateEvent) {
@@ -127,10 +132,18 @@ bot.on('message', function(message) {
         message.reply("Thank you. You are way cooler than me");
     }
 
-    if (input.includes("HELLO")) {}
+    if (input.includes("HELLO")) {
+      message.reply("Hello!");
+    }
+
+    if (input.includes("HI")) {
+      message.reply("Hello!");
+    }
 
     //TODO Search a Question in Google
-    if (input.includes("QUESTION")) {}
+    if (input.includes("QUESTION")) {
+      message.reply("www.google.com");
+    }
 
     //safety check so bot doesn't accidentally reply to non commands
     if (!message.content.startsWith(prefix))
@@ -182,7 +195,7 @@ bot.on('message', function(message) {
 });
 
 //Login to Discord using oauth
-bot.login('TOKEN_KEY'); //MjQ1NjI0NzI4NDMyMTQ4NDgy.CwOzaQ.yB4TBGLmU9QMZcQrYt1aed3xZ20
+bot.login('MjQ1MzkwMDg0NDgyOTI0NTQ2.CwQefg.p2rkiB8vIb5WHjbCyfCE3K1DA4s'); //MjQ1NjI0NzI4NDMyMTQ4NDgy.CwOzaQ.yB4TBGLmU9QMZcQrYt1aed3xZ20
 //*************  Node Js Server  ************************//
 
 //Lets define a port we want to listen to
