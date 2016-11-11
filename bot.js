@@ -69,6 +69,15 @@ bot.on('message', function(message) {
     }
     //Making call to Stackexchange ^^^^^^^
 
+    //safety check so bot doesn't accidentally reply to non commands
+    if (!message.content.startsWith(prefix))
+        return;
+
+    //prevent the bot from issuing commands
+    if (message.author.bot) {
+        return;
+    }
+
     //TODO Change this code to a Method that pass input via a Parameter
     var condition1 = input.includes("KICKSTARTER BACKER") && input.includes("COURSE") && input.includes("FREE");
     var condition2 = input.includes("KICKSTARTER BACKER") && input.includes("FREE");
@@ -132,27 +141,17 @@ bot.on('message', function(message) {
         message.reply("Thank you. You are way cooler than me");
     }
 
-    if (input.includes("HELLO BOT")) {
+
+    //TODO Keep it from Looping
+
+    /*if (input.includes("HELLO")) {
       message.reply("Hello!");
     }
 
-    if (input.includes("HI BOT")) {
+    if (input.includes("HI")) {
       message.reply("Hello!");
-    }
+    }*/
 
-    //TODO Search a Question in Google
-    if (input.includes("QUESTION")) {
-      message.reply("www.google.com");
-    }
-
-    //safety check so bot doesn't accidentally reply to non commands
-    if (!message.content.startsWith(prefix))
-        return;
-
-    //prevent the bot from issuing commands
-    if (message.author.bot) {
-        return;
-    }
     //!help displays all available commands
     let help = ["COURSES", "COUPON"];
 
@@ -194,6 +193,8 @@ bot.on('message', function(message) {
 
     //TODO Fix Kickstarter pledge
 
+    //TODO Fix loops
+
     //TODO Implament Google
 
     //TODO  Make the bot search a video in youtube using the youtube API
@@ -211,7 +212,7 @@ bot.on("guildMemberAdd", (member) => {
 });
 
 //Login to Discord using oauth
-bot.login('MjQ1MzkwMDg0NDgyOTI0NTQ2.CwQefg.p2rkiB8vIb5WHjbCyfCE3K1DA4s'); //MjQ1NjI0NzI4NDMyMTQ4NDgy.CwOzaQ.yB4TBGLmU9QMZcQrYt1aed3xZ20
+bot.login('MjQ1NjI0NzI4NDMyMTQ4NDgy.CwOzaQ.yB4TBGLmU9QMZcQrYt1aed3xZ20'); //MjQ1NjI0NzI4NDMyMTQ4NDgy.CwOzaQ.yB4TBGLmU9QMZcQrYt1aed3xZ20
 //*************  Node Js Server  ************************//
 
 //Lets define a port we want to listen to
