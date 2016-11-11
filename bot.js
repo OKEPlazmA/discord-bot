@@ -81,8 +81,8 @@ bot.on('message', function(message) {
     var book = input.includes("DEVSLOPE") && input.includes("BOOK");
     var unityClass = input.includes("UNITY") && input.includes("WHERE");
     var stickers = input.includes("STICKERS") && input.includes("DEVSLOPE");
-    var macApp = input.includes("MAC") && input.includes("APP");
-    var appleTVApp = input.includes("APPLE") && input.includes("TV") && input.includes("APP");
+    var macApp = input.includes("MAC") && input.includes("APP") && input.includes("DEVSLOPES");
+    var appleTVApp = input.includes("APPLE") && input.includes("TV") && input.includes("APP") && input.includes("DEVSLOPES");
     var udemyDevApp = input.includes("UDEMY") && input.includes("DEVSLOPE");
 
     //TODO FIX
