@@ -182,13 +182,27 @@ bot.on('message', function(message) {
         message.author.sendMessage("Android: http://bit.ly/2flDQFk");
     }
 
+    //Help on how to bot
+    if (input.includes("HOW") && ) input.includes("BOT"){
+      message.reply("Ask me a question and I will look for a answer, otherwise ask for help.");
+    }
+
+    //List all comands
+    if (input.includes("HELP")) {
+      message.reply("Here is a list of that I (Devslopes Bot) can do!");
+    }
+
+    //TODO Fix Kickstarter pledge
+
+    //TODO Implament Google
+
+    //TODO Welcome to new members
+
+    //TODO  Make the bot search a video in youtube using the youtube API 
+
     //TODO Event that store in a file when people give a new Suggestion that they want the bot to have. e.g condition = Bot it will be nice if you have -- some function--. Proccess - Store the function in a file for future implementation to the bot.
 
     //TODO Create a void method to separate the code from here
-
-    //TODO Condition = How to use the boot. Response = Step by step on how to use the bot
-
-    //TODO Condition = What the bot can do. Create a Response for this
 
     //TODO Make a Grahical User Interface to add condition and Response an validate the input instead of adding each condition and Response in code.
 
