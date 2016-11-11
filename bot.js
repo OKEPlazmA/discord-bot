@@ -1,10 +1,10 @@
 var Discord = require('discord.js');
 var stackexchange = require('stackexchange');
-var Discord = require('discord.js');
 
 //Lets require/import the HTTP module
 var http = require('http');
 var bodyParser = require('body-parser');
+
 // to make https request e.g get,post,put,delete
 var request = require('request');
 
@@ -69,7 +69,7 @@ bot.on('message', function(message) {
     }
     //Making call to Stackexchange ^^^^^^^
 
-    //** TODO Change this code to a Method that pass input via a Parameter
+    //TODO Change this code to a Method that pass input via a Parameter
     var condition1 = input.includes("KICKSTARTER BACKER") && input.includes("COURSE") && input.includes("FREE");
     var condition2 = input.includes("KICKSTARTER BACKER") && input.includes("FREE");
 
@@ -82,11 +82,11 @@ bot.on('message', function(message) {
     if (condition4 || condition3 || condition5) {
         //Message - is the channel that it will be sent to
         // String - Te content of the mesage that will be sent
-        message.reply("yes it's free for Kickstarter backer who pledge above $100");
+        message.reply("Yes it's free for Kickstarter backer who pledge above $100.");
     }
 
     if (lateEvent) {
-        message.reply("yeah email jason@devslope.com for more info");
+        message.reply("Yes email jason@devslope.com for more info.");
     }
 
     if (input === "I AM PRETTY" || input === "I AM PRETTY ?") {
@@ -101,10 +101,10 @@ bot.on('message', function(message) {
         message.reply("Thank you. You are way cooler than me");
     }
 
-    if (input.includes("Hello")) {}
+    if (input.includes("HELLO")) {}
 
     // TODO: Search a Question in Google
-    if (input.includes("Question")) {}
+    if (input.includes("QUESTION")) {}
 
     //safety check so bot doesn't accidentally reply to non commands
     if (!message.content.startsWith(prefix))
@@ -115,9 +115,9 @@ bot.on('message', function(message) {
         return;
     }
     //!help displays all available commands
-    let help = ["courses", "coupon"];
+    let help = ["COURSES", "COUPON"];
 
-    if (message.content.startsWith(prefix + 'help')) {
+    if (message.content.startsWith(prefix + 'HELP')) {
         message.author.sendMessage("Here is a list of available commands:");
 
         for (var i in help) {
@@ -126,7 +126,7 @@ bot.on('message', function(message) {
     }
 
     //!courses lists all courses in a message
-    if (message.content.startsWith(prefix + 'courses')) {
+    if (message.content.startsWith(prefix + 'COURSES')) {
         message.author.sendMessage("Here is a list of Devslopes courses:");
         message.author.sendMessage("https://www.udemy.com/devslopes-ios10/");
         message.author.sendMessage("https://www.udemy.com/sketch-design/");
@@ -138,20 +138,20 @@ bot.on('message', function(message) {
     }
 
     //!coupon to display coupon for courses
-    if (message.content.startsWith(prefix + 'coupon')) {
+    if (message.content.startsWith(prefix + 'COUPON')) {
         message.author.sendMessage("iOS: http://bit.ly/2eu6XGC");
         message.author.sendMessage("Android: http://bit.ly/2flDQFk");
     }
 
-    // TODO Event that store in a file when people give a new Suggestion that they want the bot to have. e.g condition = Bot it will be nice if you have -- some function--. Proccess - Store the function in a file for future implementation to the bot.
+    //TODO Event that store in a file when people give a new Suggestion that they want the bot to have. e.g condition = Bot it will be nice if you have -- some function--. Proccess - Store the function in a file for future implementation to the bot.
 
-    // TODO Condition = Hi I can still get the -devslope- -iOS- -Kickstarter- book  . where I can buy the -devslope- book. Response = "Yes you can buy the book email jason@devslope.com"
+    //TODO Condition = Hi I can still get the -devslope- -iOS- -Kickstarter- book  . where I can buy the -devslope- book. Response = "Yes you can buy the book email jason@devslope.com"
 
     //TODO Create a void method to separate the code from here
 
-    // TODO Condition = How to use the boot. Response = Step by step on how to use the bot
+    //TODO Condition = How to use the boot. Response = Step by step on how to use the bot
 
-    // TODO Condition = What the bot can do. Create a Response for this
+    //TODO Condition = What the bot can do. Create a Response for this
 
     //TODO Condition = I can get all the course that I paid in Udmey within the Desvlope app. Proccess = str.includes("COURSE") && str.includes("UDEMY") && str.includes("DEVSLOPE APP"). Response = No --Custom Response--
 
@@ -160,8 +160,9 @@ bot.on('message', function(message) {
     //TODO condition = when the --mac app-- --devslope mac app-- will be ready. response = the mac app will be ready in december 31
 
 });
+
 //Login to Discord using oauth
-bot.login('MjQ1MzkwMDg0NDgyOTI0NTQ2.CwQefg.p2rkiB8vIb5WHjbCyfCE3K1DA4s'); //MjQ1NjI0NzI4NDMyMTQ4NDgy.CwOzaQ.yB4TBGLmU9QMZcQrYt1aed3xZ20
+bot.login('TOKEN_KEY'); //MjQ1NjI0NzI4NDMyMTQ4NDgy.CwOzaQ.yB4TBGLmU9QMZcQrYt1aed3xZ20
 //*************  Node Js Server  ************************//
 
 //Lets define a port we want to listen to
