@@ -155,7 +155,7 @@ bot.on('message', function(message) {
     //!help displays all available commands
     let help = ["COURSES", "COUPON"];
 
-    if (message.content.startsWith(prefix + 'HELP')) {
+    if (message.content.startsWith(prefix + 'help')) {
         message.author.sendMessage("Here is a list of available commands:");
 
         for (var i in help) {
@@ -164,7 +164,7 @@ bot.on('message', function(message) {
     }
 
     //!courses lists all courses in a message
-    if (message.content.startsWith(prefix + 'COURSES')) {
+    if (message.content.startsWith(prefix + 'courses')) {
         message.author.sendMessage("Here is a list of Devslopes courses:");
         message.author.sendMessage("https://www.udemy.com/devslopes-ios10/");
         message.author.sendMessage("https://www.udemy.com/sketch-design/");
@@ -176,7 +176,7 @@ bot.on('message', function(message) {
     }
 
     //!coupon to display coupon for courses
-    if (message.content.startsWith(prefix + 'COUPON')) {
+    if (message.content.startsWith(prefix + 'coupon')) {
         message.author.sendMessage("iOS: http://bit.ly/2eu6XGC");
         message.author.sendMessage("Android: http://bit.ly/2flDQFk");
     }
@@ -212,39 +212,22 @@ bot.on("guildMemberAdd", (member) => {
 });
 
 //Login to Discord using oauth
-bot.login('Token Key '); 
+bot.login('token_key');
 //*************  Node Js Server  ************************//
 
 //Lets define a port we want to listen to
-//const PORT = 8080;
+const PORT=8080;
 
 //We need a function which handles requests and send response
-function handleRequest(request, response) {
-
-    //Lets define a port we want to listen to
-    const PORT = 8080;
-
-    //We need a function which handles requests and send response
-    function handleRequest(request, response) {
-        response.end('It Works!! Path Hit: ' + request.url);
-    }
-
-    //Create a server
-    var server = http.createServer(handleRequest);
-
-    //Lets start our server
-    server.listen(PORT, function() {
-        //Callback triggered when server is successfully listening. Hurray!
-        console.log("Server listening on: http://localhost:%s", PORT);
-    });
-
-    nd('It Works!! Path Hit: ' + request.url);
-    //Create a server
-    var server = http.createServer(handleRequest);
-
-    //Lets start our server
-    server.listen(PORT, function() {
-        //Callback triggered when server is successfully listening. Hurray!
-        console.log("Server listening on: http://localhost:%s", PORT);
-    });
+function handleRequest(request, response){
+    response.end('It Works!! Path Hit: ' + request.url);
 }
+
+//Create a server
+var server = http.createServer(handleRequest);
+
+//Lets start our server
+server.listen(PORT, function(){
+    //Callback triggered when server is successfully listening. Hurray!
+    console.log("Server listening on: http://localhost:%s", PORT);
+});
