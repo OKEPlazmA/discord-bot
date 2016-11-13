@@ -23,14 +23,6 @@ bot.on('message', function(message) {
   var condition5 = input.includes("BACKER") && input.includes("COURSE");
   var lateEvent = input.includes("LATE") && input.includes("PLEDGE");
 
-
-   if (input === "I AM PRETTY" || input === "I AM PRETTY ?") {
-       functionHelper.replyToMessageWith("Yes. You are always Pretty. Keep Smiling. ",message);
-   }
-   if (input.includes("HOW USE BOT") ) {
-       functionHelper.replyToMessageWith("If you want to search stackoverflow.com for your question type ! in the beginning of your question and dont forget the question mark",message);
-
-   }
      // stackoverflow API
    if (input.includes('?')) {
        console.log("llego al ? ");
@@ -39,21 +31,33 @@ bot.on('message', function(message) {
             functionHelper.stackOverflowApiResults(functionHelper.removeThatPhrase(message.content, prefix, ' '),message);
             }
    }
-     if (condition4 || condition3 || condition5) {
-        //Message - is the channel that it will be sent to
-        // String - Te content of the mesage that will be sent
-        functionHelper.replyToMessageWith("yes it's free for Kickstarter backer who pledge above $100",message);
-    }
+   
+   
+  //Conditional responses
+  functionHelper.checkConditions([input === "I AM PRETTY" || input === "I AM PRETTY ?"],
+                                  message,
+                                  "Yes. You are always Pretty. Keep Smiling."); 
+  functionHelper.checkConditions([condition4, condition3, condition5],
+                                  message, 
+                                  "yes it's free for Kickstarter backer who pledge above $100");
+  functionHelper.checkConditions([lateEvent], 
+                                  message, 
+                                  "yeah email jason@devslope.com for more info");
+  functionHelper.checkConditions([input.includes("LOVING"), input.includes("LIKE") && input.includes("BOT")], 
+                                  message, 
+                                  "Thank you. You are way cooler than me");
+  functionHelper.checkConditions([input === "BOT WHO ARE YOU"], 
+                                  message, 
+                                  "I'm here to help you to become a better developer. I am a work in progress");
+  
 
-     if (lateEvent) {
-        functionHelper.replyToMessageWith("yeah email jason@devslope.com for more info",message);
-    }
-
-     if ((input.includes("LOVING") || input.includes("LIKE")) && input.includes("BOT")) {
-        functionHelper.replyToMessageWith("Thank you. You are way cooler than me",message);
-    }
-     // This function check for !Course and !help and !Coupon
-     functionHelper.messageAuthor(message,prefix);
+  
+  //Unconditional responses
+  functionHelper.response(message);
+  
+  
+  // This function check for !Course and !help and !Coupon
+  functionHelper.messageAuthor(message,prefix);
 
 });
 

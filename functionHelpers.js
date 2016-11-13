@@ -21,6 +21,33 @@ var bot = require("./bot.js"),
       console.log(newSentence);
       return newSentence
   }
+  
+  //Create conditional responses for specified queries
+  exports.checkConditions = function(conditions, message, str) {
+    for (var i in conditions) {
+      if (conditions[i]) {
+        message.reply(str); 
+        return;
+      }
+    }
+  }
+  
+  
+//Creat undconditional responses
+exports.response = function(message) {
+  var responseObject = {
+    "how to use bot": "If you want to search stackoverflow.com for your question type ! in the beginning of your question and dont forget the question mark",  
+    "wat": "Say what?",
+    "lol": "roflmaotntpmp"
+  };
+
+
+  var msg = message.content.toLowerCase();
+  if(responseObject[msg]) {
+    message.channel.sendMessage(responseObject[msg]);
+  }
+}  
+  
 
   //Use this function to reply to a message! Just put your reply in as the variable;)
   exports.replyToMessageWith = function (replyMessage,message) {
