@@ -9,7 +9,7 @@ var Discord = require('discord.js'),
 
 // bot client You can now use the bots features
 const bot = new Discord.Client();
-let prefix = '!';
+var prefix = '!';
 
 // This will run whenever the bot get a message. / whenever a message is sent to a server that it is in
 bot.on('message', function(message) {
