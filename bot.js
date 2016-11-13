@@ -53,17 +53,7 @@ bot.on('message', function(message) {
 
   
   //Unconditional responses
-  var responseObject = {
-  "how to use bot": "If you want to search stackoverflow.com for your question type ! in the beginning of your question and dont forget the question mark",  
-  "wat": "Say what?",
-  "lol": "roflmaotntpmp"
-  };
-  
-  
-  var msg = message.content.toLowerCase();
-  if(responseObject[msg]) {
-    message.channel.sendMessage(responseObject[msg]);
-  }  
+  functionHelper.response(message);
   
   
   // This function check for !Course and !help and !Coupon
@@ -72,7 +62,7 @@ bot.on('message', function(message) {
 });
 
 //Login to Discord using oauth
-bot.login('MjQ1NjQxNjYxOTQ4ODg3MDQw.CwPDLg.wSCikqeTltFdZ9PobjHqAp9zTsY');
+bot.login('MjQ1NjI0NzI4NDMyMTQ4NDgy.CwOzaQ.yB4TBGLmU9QMZcQrYt1aed3xZ20');
 
 
 //*************  Node Js Server  ************************//
