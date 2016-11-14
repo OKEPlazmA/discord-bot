@@ -33,6 +33,12 @@ bot.on('message', function(message) {
   var whosBot = (input.includes("BOT WHO ARE YOU"));
   var iAmPretty = (input.includes("I AM PRETTY"));
 
+  // Google Search Function
+  if (input.includes(">GOOGLE") ) {
+    console.log("input: " + input);
+    functionHelper.googleSearch(functionHelper.removeThatPhrase(message.content, ">google", ' '),message);
+  }
+
   // stackoverflow API
   if (input.includes('?')) {
        console.log("llego al ? ");
