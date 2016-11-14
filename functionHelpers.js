@@ -36,7 +36,7 @@ var bot = require("./bot.js"),
 //Creat undconditional responses
 exports.response = function(message) {
   var responseObject = {
-    "how to use bot": "If you want to search stackoverflow.com for your question type ! in the beginning of your question and dont forget the question mark at the end.",
+    "how to use bot": "If you want to search stackoverflow.com for your question type !S in the beginning of your question and dont forget the question mark at the end.",
     "wat": "Say what?",
     "lol": "roflmaotntpmp"
   };
@@ -63,7 +63,8 @@ exports.response = function(message) {
    let help = ["courses", "coupon"];
 
    if (message.content.startsWith(prefix + 'help')) {
-       message.author.sendMessage("If you want to search stackoverflow.com for your question put a '!' in the beginning of your question and dont forget the question mark at the end.");
+       message.author.sendMessage("If you want to search stackoverflow.com for your question put a '!S' in the beginning of your question and dont forget the question mark at the end.");
+       message.author.sendMessage("If you want to search google.com for your question put a '!G' in the beginning.");
        message.author.sendMessage("Here is a list of available commands:");
 
        for (var i in help) {
@@ -115,7 +116,7 @@ exports.response = function(message) {
       context.search.advanced(filter, function(err, results) {
          if (results) {
              if (results.items[0].link) {
-                 fun.replyToMessageWith(' Checkout these Links I found for you. If it is not what You are looking for ask me the same question in a different way, or add more detail(ex: !How do I shuffle an array in Swift?) :grinning: ' + (results.items[0].link) + ' ' + (results.items[1].link),message);
+                 fun.replyToMessageWith(' Checkout these Links I found for you. If it is not what You are looking for ask me the same question in a different way, or add more detail(ex: !S How do I shuffle an array in Swift?)' + (results.items[0].link) + ' ' + (results.items[1].link),message);
              }
          }
      });
