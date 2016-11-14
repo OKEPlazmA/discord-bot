@@ -58,10 +58,6 @@ exports.response = function(message) {
    if (!message.content.startsWith(prefix))
        return;
 
-   //prevent the bot from issuing commands
-   if (message.author.bot) {
-       return;
-   }
    //!help displays all available commands
    let help = ["courses", "coupon"];
 

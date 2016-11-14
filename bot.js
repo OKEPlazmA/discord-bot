@@ -15,18 +15,23 @@ var prefix = '!';
 bot.on('message', function(message) {
   var input = message.content.toUpperCase();
 
+  //prevent the bot from issuing commands
+  if (message.author.bot) {
+      return;
+  }
+
   //This part is where we define the conditions
-  var kickstarterCondition1 = sentenceContains("KICKSTARTER BACKER") && ("COURSE");
-  var kickstarterCondition2 = sentenceContains("KICKSTARTER") && ("COURSE");
-  var kickstarterCondition3 = sentenceContains("BACKER") && ("COURSE");
-  var lateEvent = sentenceContains("LATE") && ("PLEDGE");
-  var macApp = sentenceContains("MAC") && ("APP") && ("DEVSLOPE");
-  var tvApp = sentenceContains("TV") && ("APP") && ("DEVSLOPE");
-  var devStickers = sentenceContains("DEVSLOPE") && ("STICKERS");
-  var devBook = sentenceContains("DEVSLOPE") && ("BOOK");
-  var loveBot = sentenceContains("LOVING") || ("LIKE") && ("BOT");
-  var whosBot = sentenceContains("BOT WHO ARE YOU");
-  var iAmPretty = sentenceContains("I AM PRETTY");
+  var kickstarterCondition1 = (input.includes("KICKSTARTER BACKER") && input.includes("COURSE"));
+  var kickstarterCondition2 = (input.includes("KICKSTARTER") && input.includes("COURSE"));
+  var kickstarterCondition3 = (input.includes("BACKER") && input.includes("COURSE"));
+  var lateEvent = (input.includes("LATE") && input.includes("PLEDGE"));
+  var macApp = (input.includes("MAC") && ("APP") && input.includes("DEVSLOPE"));
+  var tvApp = (input.includes("TV") && input.includes("APP") && input.includes("DEVSLOPE"));
+  var devStickers = (input.includes("DEVSLOPE") && input.includes("STICKERS"));
+  var devBook = (input.includes("DEVSLOPE") && input.includes("BOOK"));
+  var loveBot = (input.includes("LOVING") || input.includes("LIKE") && input.includes("BOT"));
+  var whosBot = (input.includes("BOT WHO ARE YOU"));
+  var iAmPretty = (input.includes("I AM PRETTY"));
 
   // stackoverflow API
   if (input.includes('?')) {
