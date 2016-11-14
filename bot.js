@@ -34,17 +34,17 @@ bot.on('message', function(message) {
   var iAmPretty = (input.includes("I AM PRETTY"));
 
   // Google Search Function
-  if (input.includes(">GOOGLE") ) {
+  if (input.includes("!G") ) {
     console.log("input: " + input);
-    functionHelper.googleSearch(functionHelper.removeThatPhrase(message.content, ">google", ' '),message);
+    functionHelper.googleSearch(functionHelper.removeThatPhrase(message.content, "!G", ' '),message);
   }
 
   // stackoverflow API
   if (input.includes('?')) {
        console.log("llego al ? ");
-        if (input.includes(prefix)) {
-            console.log("llego al ! excalamcion");
-            functionHelper.stackOverflowApiResults(functionHelper.removeThatPhrase(message.content, prefix, ' '),message);
+        if (input.includes("!S")) {
+            console.log("llego al !S excalamcion");
+            functionHelper.stackOverflowApiResults(functionHelper.removeThatPhrase(message.content, "!S", ' '),message);
             }
    }
 
