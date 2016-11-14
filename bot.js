@@ -29,7 +29,7 @@ bot.on('message', function(message) {
   var tvApp = (input.includes("TV") && input.includes("APP") && input.includes("DEVSLOPE"));
   var devStickers = (input.includes("DEVSLOPE") && input.includes("STICKERS"));
   var devBook = (input.includes("DEVSLOPE") && input.includes("BOOK"));
-  var loveBot = (input.includes("LOVING") || input.includes("LIKE") || input.includes("LOVE") && input.includes("BOT"));
+  var loveBot = ((input.includes("LOVING") || input.includes("LIKE") || input.includes("LOVE")) && input.includes("BOT"));
   var whosBot = (input.includes("BOT WHO ARE YOU"));
   var iAmPretty = (input.includes("I AM PRETTY"));
 
