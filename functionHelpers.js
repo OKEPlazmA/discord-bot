@@ -32,14 +32,6 @@ var bot = require("./bot.js"),
     }
   }
 
-//Call this function if you want to see if a word is contained in a message recieved from someone.
-  exports.sentenceContains(contains) {
-      if (input.indexOf(contains) > -1) {
-          return true;
-      }
-  }
-
-
 //Creat undconditional responses
 exports.response = function(message) {
   var responseObject = {
