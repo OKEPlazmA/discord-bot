@@ -62,6 +62,7 @@ exports.response = function(message) {
    let help = ["courses", "coupon"];
 
    if (message.content.startsWith(prefix + 'help')) {
+       message.author.sendMessage("If you want to search stackoverflow.com for your question put a '!' in the beginning of your question and dont forget the question mark at the end.");
        message.author.sendMessage("Here is a list of available commands:");
 
        for (var i in help) {
@@ -79,6 +80,11 @@ exports.response = function(message) {
        message.author.sendMessage("https://www.udemy.com/learn-android/");
        message.author.sendMessage("https://www.udemy.com/apple-tv/");
        message.author.sendMessage("https://www.udemy.com/ios9-swift/");
+       message.author.sendMessage("https://www.udemy.com/react-flux/");
+       message.author.sendMessage("https://www.udemy.com/devslopes-unity3d/");
+       message.author.sendMessage("https://www.udemy.com/mobile-design/");
+       message.author.sendMessage("https://www.udemy.com/api-development/");
+       message.author.sendMessage("https://www.udemy.com/angular2/");
    }
 
    //!coupon to display coupon for courses

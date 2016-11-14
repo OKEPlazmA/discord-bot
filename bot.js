@@ -83,11 +83,11 @@ bot.on('message', function(message) {
 
 //Welcomes new members
 bot.on("guildMemberAdd", (member) => {
-    member.guild.defaultChannel.sendMessage("Hello " + member.user + " Welcome to the Devslopes community!")
+    member.guild.defaultChannel.sendMessage("Hello " + member.user + " Welcome to the Devslopes community! Use '!help' for more commands.")
   });
 
 //Login to Discord using oauth
-bot.login('MjQ1NjI0NzI4NDMyMTQ4NDgy.CwOzaQ.yB4TBGLmU9QMZcQrYt1aed3xZ20');
+bot.login('MjQ1MzkwMDg0NDgyOTI0NTQ2.CwQefg.p2rkiB8vIb5WHjbCyfCE3K1DA4s');
 
 
 //*************  Node Js Server  ************************//
