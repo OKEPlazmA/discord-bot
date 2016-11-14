@@ -1,6 +1,7 @@
 var bot = require("./bot.js"),
     VerEx = require('verbal-expressions'),
     stackexchange = require('stackexchange');
+    google = require ("./google.js");
 
 //this is use in the line 44 of this code - do not remove
 // is an object that contains one function
@@ -35,7 +36,7 @@ var bot = require("./bot.js"),
 //Creat undconditional responses
 exports.response = function(message) {
   var responseObject = {
-    "how to use bot": "If you want to search stackoverflow.com for your question type ! in the beginning of your question and dont forget the question mark at the end.",
+    "how to use bot": "If you want to search stackoverflow.com for your question type !S in the beginning of your question and dont forget the question mark at the end.",
     "wat": "Say what?",
     "lol": "roflmaotntpmp"
   };
@@ -62,7 +63,8 @@ exports.response = function(message) {
    let help = ["courses", "coupon"];
 
    if (message.content.startsWith(prefix + 'help')) {
-       message.author.sendMessage("If you want to search stackoverflow.com for your question put a '!' in the beginning of your question and dont forget the question mark at the end.");
+       message.author.sendMessage("If you want to search stackoverflow.com for your question put a '!S' in the beginning of your question and dont forget the question mark at the end.");
+       message.author.sendMessage("If you want to search google.com for your question put a '!G' in the beginning.");
        message.author.sendMessage("Here is a list of available commands:");
 
        for (var i in help) {
@@ -114,8 +116,36 @@ exports.response = function(message) {
       context.search.advanced(filter, function(err, results) {
          if (results) {
              if (results.items[0].link) {
-                 fun.replyToMessageWith(' Checkout these Links I found for you. If it is not what You are looking for ask me the same question in a different way, or add more detail(ex: !How do I shuffle an array in Swift?) :grinning: ' + (results.items[0].link) + ' ' + (results.items[1].link),message);
+                 fun.replyToMessageWith(' Checkout these Links I found for you. If it is not what You are looking for ask me the same question in a different way, or add more detail(ex: !S How do I shuffle an array in Swift?)' + (results.items[0].link) + ' ' + (results.items[1].link),message);
              }
          }
      });
   } ////////// End StackOverFlow function ////////////
+
+
+  /////////////********Google Search Function ****************//////////////
+
+  exports.googleSearch = function (searchQuery,message) {
+
+  google.resultsPerPage = 3
+  var counter = 0
+  google(searchQuery, function (err, res){
+    if (err) console.error(err)
+      var link = res.links[counter];
+      fun.replyToMessageWith(link.title + ' - ' + link.href,message);
+      // Uncoment this line if you want the description of the web page
+        //  fun.replyToMessageWith(link.description + "\n",message);
+      counter += 1
+    if (counter <= 2){
+      // run the function again aka do the search again
+      res.next()
+    }else {
+      // else if counter if greater than 2 return. I dont want more google results
+      return;
+    }
+
+    });
+
+  }
+
+  /////////////********END Google Search Function ****************//////////////

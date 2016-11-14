@@ -29,16 +29,22 @@ bot.on('message', function(message) {
   var tvApp = (input.includes("TV") && input.includes("APP") && input.includes("DEVSLOPE"));
   var devStickers = (input.includes("DEVSLOPE") && input.includes("STICKERS"));
   var devBook = (input.includes("DEVSLOPE") && input.includes("BOOK"));
-  var loveBot = (input.includes("LOVING") || input.includes("LIKE") || input.includes("LOVE") && input.includes("BOT"));
+  var loveBot = ((input.includes("LOVING") || input.includes("LIKE") || input.includes("LOVE")) && input.includes("BOT"));
   var whosBot = (input.includes("BOT WHO ARE YOU"));
   var iAmPretty = (input.includes("I AM PRETTY"));
+
+  // Google Search Function
+  if (input.includes("!G") ) {
+    console.log("input: " + input);
+    functionHelper.googleSearch(functionHelper.removeThatPhrase(message.content, "!G", ' '),message);
+  }
 
   // stackoverflow API
   if (input.includes('?')) {
        console.log("llego al ? ");
-        if (input.includes(prefix)) {
-            console.log("llego al ! excalamcion");
-            functionHelper.stackOverflowApiResults(functionHelper.removeThatPhrase(message.content, prefix, ' '),message);
+        if (input.includes("!S")) {
+            console.log("llego al !S excalamcion");
+            functionHelper.stackOverflowApiResults(functionHelper.removeThatPhrase(message.content, "!S", ' '),message);
             }
    }
 
