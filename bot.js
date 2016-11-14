@@ -31,9 +31,10 @@ bot.on('message', function(message) {
     var tvApp = (input.includes("TV") && input.includes("APP") && input.includes("DEVSLOPE"));
     var devStickers = (input.includes("DEVSLOPE") && input.includes("STICKERS"));
     var devBook = (input.includes("DEVSLOPE") && input.includes("BOOK"));
-    var loveBot = (input.includes("LOVING") || input.includes("LIKE") || input.includes("LOVE") && input.includes("BOT"));
+    var loveBot = ((input.includes("LOVING") || input.includes("LIKE") || input.includes("LOVE")) && input.includes("BOT"));
     var whosBot = (input.includes("BOT WHO ARE YOU"));
     var iAmPretty = (input.includes("I AM PRETTY"));
+    var howBot = (input.includes("HOW") && input.includes ("BOT"));
 
     // Google Search Function
     if ((msgContent).startsWith("!G")) {
@@ -42,7 +43,7 @@ bot.on('message', function(message) {
     }
 
     // stackoverflow API
-    if ((msgContent).startsWith('!S')) {
+    if ((msgContent).startsWith("!S")) {
         console.log("llego al ? ");
         if (input.includes(prefix)) {
             console.log("llego al ! excalamcion");
@@ -51,7 +52,7 @@ bot.on('message', function(message) {
     }
 
     // YouTube API
-    if ((msgContent).startsWith('!Y')) {
+    if ((msgContent).startsWith("!Y")) {
         functionHelper.youtubeApiResults((functionHelper.removeThatPhrase(input, '!Y', '')), message);
     }
 
@@ -59,9 +60,8 @@ bot.on('message', function(message) {
     functionHelper.checkConditions([iAmPretty], message, "Yes. You are always pretty. Keep smiling.");
     functionHelper.checkConditions([loveBot], message, "Thank you. You are way cooler than me.");
     functionHelper.checkConditions([whosBot], message, "I'm here to help you to become a better developer. I am a work in progress.");
-    functionHelper.checkConditions([
-        kickstarterCondition1, kickstarterCondition2, kickstarterCondition3
-    ], message, "Kickstarter backers who pledged above $60 get lifetime access for FREE to any and all courses that Devslopes will ever release.");
+    functionHelper.checkConditions([howBot]), message, "Enter '!help' for a list of commands."
+    functionHelper.checkConditions([kickstarterCondition1, kickstarterCondition2, kickstarterCondition3], message, "Kickstarter backers who pledged above $60 get lifetime access for FREE to any and all courses that Devslopes will ever release.");
     functionHelper.checkConditions([lateEvent], message, "Email jason@devslope.com for more info.");
     functionHelper.checkConditions([macApp], message, "The Mac and Apple TV app will be out by the end of the year.");
     functionHelper.checkConditions([tvApp], message, "The Mac and Apple TV app will be out by the end of the year.");

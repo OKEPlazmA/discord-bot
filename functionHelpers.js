@@ -36,7 +36,7 @@ exports.checkConditions = function(conditions, message, str) {
 //Creat undconditional responses
 exports.response = function(message) {
     var responseObject = {
-        "how to use bot": "If you want to search stackoverflow.com for your question type !S in the beginning of your question and dont forget the question mark at the end.",
+        "how to use bot": "Enter '!help'",
         "wat": "Say what?",
         "lol": "roflmaotntpmp"
     };
@@ -62,8 +62,9 @@ exports.messageAuthor = function(message, prefix) {
     let help = ["courses", "coupon"];
 
     if (message.content.startsWith(prefix + 'help')) {
-        message.author.sendMessage("If you want to search stackoverflow.com for your question put a '!S' in the beginning of your question and dont forget the question mark at the end.");
-        message.author.sendMessage("If you want to search google.com for your question put a '!G' in the beginning.");
+        message.author.sendMessage("If you want to search stackoverflow.com a '!S' in the beginning of your search.");
+        message.author.sendMessage("If you want to search google.com a '!G' in the beginning of your search.");
+        message.author.sendMessage("If you want to search youtube.com a '!Y' in the beginning of your search.");
         message.author.sendMessage("Here is a list of available commands:");
 
         for (var i in help) {
