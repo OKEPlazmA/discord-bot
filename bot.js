@@ -39,7 +39,7 @@ bot.on('message', function(message) {
                                   "Yes. You are always Pretty. Keep Smiling."); 
   functionHelper.checkConditions([condition4, condition3, condition5],
                                   message, 
-                                  "yes it's free for Kickstarter backer who pledge above $100");
+                                  "yes it's free in the Devslopes app,not in udemy for Kickstarter backer who pledge above $100 and also for the early bids backers (75$)");
   functionHelper.checkConditions([lateEvent], 
                                   message, 
                                   "yeah email jason@devslope.com for more info");
