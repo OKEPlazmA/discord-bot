@@ -21,22 +21,21 @@ var bot = require("./bot.js"),
       console.log(newSentence);
       return newSentence
   }
-  
+
   //Create conditional responses for specified queries
   exports.checkConditions = function(conditions, message, str) {
     for (var i in conditions) {
       if (conditions[i]) {
-        message.reply(str); 
+        message.reply(str);
         return;
       }
     }
   }
-  
-  
+
 //Creat undconditional responses
 exports.response = function(message) {
   var responseObject = {
-    "how to use bot": "If you want to search stackoverflow.com for your question type ! in the beginning of your question and dont forget the question mark",  
+    "how to use bot": "If you want to search stackoverflow.com for your question type ! in the beginning of your question and dont forget the question mark at the end.",
     "wat": "Say what?",
     "lol": "roflmaotntpmp"
   };
@@ -46,8 +45,7 @@ exports.response = function(message) {
   if(responseObject[msg]) {
     message.channel.sendMessage(responseObject[msg]);
   }
-}  
-  
+}
 
   //Use this function to reply to a message! Just put your reply in as the variable;)
   exports.replyToMessageWith = function (replyMessage,message) {
@@ -60,10 +58,6 @@ exports.response = function(message) {
    if (!message.content.startsWith(prefix))
        return;
 
-   //prevent the bot from issuing commands
-   if (message.author.bot) {
-       return;
-   }
    //!help displays all available commands
    let help = ["courses", "coupon"];
 
@@ -97,7 +91,7 @@ exports.response = function(message) {
 
 
        //////////// ************* STACKOVERFLOW *************/////////////////////
-   // Move this function to is own file      
+   // Move this function to is own file
   // This Functions do the search on stackoverflow
   exports.stackOverflowApiResults = function (question,message) {
        var options = {
