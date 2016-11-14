@@ -16,10 +16,17 @@ bot.on('message', function(message) {
   var input = message.content.toUpperCase();
 
   //This part is where we define the conditions
-  var kickstarterCondition1 = input.includes("KICKSTARTER BACKER") && input.includes("COURSE");
-  var kickstarterCondition2 = input.includes("KICKSTARTER") && input.includes("COURSE");
-  var kickstarterCondition3 = input.includes("BACKER") && input.includes("COURSE");
-  var lateEvent = input.includes("LATE") && input.includes("PLEDGE");
+  var kickstarterCondition1 = sentenceContains("KICKSTARTER BACKER") && ("COURSE");
+  var kickstarterCondition2 = sentenceContains("KICKSTARTER") && ("COURSE");
+  var kickstarterCondition3 = sentenceContains("BACKER") && ("COURSE");
+  var lateEvent = sentenceContains("LATE") && ("PLEDGE");
+  var macApp = sentenceContains("MAC") && ("APP") && ("DEVSLOPE");
+  var tvApp = sentenceContains("TV") && ("APP") && ("DEVSLOPE");
+  var devStickers = sentenceContains("DEVSLOPE") && ("STICKERS");
+  var devBook = sentenceContains("DEVSLOPE") && ("BOOK");
+  var loveBot = sentenceContains("LOVING") || ("LIKE") && ("BOT");
+  var whosBot = sentenceContains("BOT WHO ARE YOU");
+  var iAmPretty = sentenceContains("I AM PRETTY");
 
   // stackoverflow API
   if (input.includes('?')) {
@@ -31,21 +38,33 @@ bot.on('message', function(message) {
    }
 
   //Conditional responses
-  functionHelper.checkConditions([input === "I AM PRETTY" || input === "I AM PRETTY?" || input === "I AM PRETTY ?"],
+  functionHelper.checkConditions([iAmPretty],
                                   message,
                                   "Yes. You are always Pretty. Keep Smiling.");
-  functionHelper.checkConditions([input.includes("LOVING"), input.includes("LIKE") && input.includes("BOT")],
+  functionHelper.checkConditions([loveBot],
                                   message,
                                   "Thank you. You are way cooler than me.");
-  functionHelper.checkConditions([input === "BOT WHO ARE YOU"],
+  functionHelper.checkConditions([whosBot],
                                   message,
                                   "I'm here to help you to become a better developer. I am a work in progress.");
   functionHelper.checkConditions([kickstarterCondition1, kickstarterCondition2, kickstarterCondition3],
                                   message,
-                                  "Kickstarter backers who pledged above $100 get lifetime access for FREE to any and all courses that Devslopes will ever release.");
+                                  "Kickstarter backers who pledged above $60 get lifetime access for FREE to any and all courses that Devslopes will ever release.");
   functionHelper.checkConditions([lateEvent],
                                   message,
                                   "Email jason@devslope.com for more info.");
+  functionHelper.checkConditions([macApp],
+                                  message,
+                                  "The Mac and Apple TV app will be out by the end of the year.");
+  functionHelper.checkConditions([tvApp],
+                                  message,
+                                  "The Mac and Apple TV app will be out by the end of the year.");
+  functionHelper.checkConditions([devStickers],
+                                  message,
+                                  "https://itunes.apple.com/us/app/hacker-pack-coding-nerd-stickers/id1154247796?mt=8");
+  functionHelper.checkConditions([devBook],
+                                  message,
+                                  "The Devslopes Book should be out Nov 30th for digital copy, physcical copies shortly after.");
 
 
   //Unconditional responses
@@ -63,7 +82,7 @@ bot.on("guildMemberAdd", (member) => {
   });
 
 //Login to Discord using oauth
-bot.login('MjQ1NjI0NzI4NDMyMTQ4NDgy.CwOzaQ.yB4TBGLmU9QMZcQrYt1aed3xZ20');
+bot.login('MjQ1MzkwMDg0NDgyOTI0NTQ2.CwQefg.p2rkiB8vIb5WHjbCyfCE3K1DA4s');
 
 
 //*************  Node Js Server  ************************//
