@@ -60,7 +60,7 @@ bot.on('message', function(message) {
     functionHelper.checkConditions([iAmPretty], message, "Yes. You are always pretty. Keep smiling.");
     functionHelper.checkConditions([loveBot], message, "Thank you. You are way cooler than me.");
     functionHelper.checkConditions([whosBot], message, "I'm here to help you to become a better developer. I am a work in progress.");
-    functionHelper.checkConditions([howBot]), message, "Enter '!help' for a list of commands."
+    functionHelper.checkConditions([howBot], message, "Enter '!help' for a list of commands.");
     functionHelper.checkConditions([kickstarterCondition1, kickstarterCondition2, kickstarterCondition3], message, "Kickstarter backers who pledged above $60 get lifetime access for FREE to any and all courses that Devslopes will ever release.");
     functionHelper.checkConditions([lateEvent], message, "Email jason@devslope.com for more info.");
     functionHelper.checkConditions([macApp], message, "The Mac and Apple TV app will be out by the end of the year.");
