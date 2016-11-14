@@ -87,7 +87,7 @@ bot.on("guildMemberAdd", (member) => {
   });
 
 //Login to Discord using oauth
-bot.login('MjQ1MzkwMDg0NDgyOTI0NTQ2.CwQefg.p2rkiB8vIb5WHjbCyfCE3K1DA4s');
+bot.login('MjQ1NjI0NzI4NDMyMTQ4NDgy.CwOzaQ.yB4TBGLmU9QMZcQrYt1aed3xZ20');
 
 
 //*************  Node Js Server  ************************//
