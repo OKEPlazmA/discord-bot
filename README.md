@@ -11,7 +11,7 @@ If you want to contribute:
 <ol>  5)  Before start playing with the code do a npm install this will install al the dependecies need to work </ol>
 </ul>
 
- IMPORTANT !!!!!!! Download your project from the Testing branch and make a <b> pull request </b> to the <b> Testing branch or your own branch </b>  ***** IMPORTANT BEFORE DOWNLOADING OR CONTRUBUITING TO THE PROJECT READ THIS!!! ***** 
+ IMPORTANT !!!!!!! Download your project from the Testing branch and make a <b> pull request </b> to the <b> Testing branch or your own branch </b>  ***** IMPORTANT BEFORE DOWNLOADING OR CONTRIBUTING TO THE PROJECT READ THIS!!! ***** 
 
 
 To add a Response to the Bot you just need to add a Condition and then in the Body of the if you add what you want the bot to say.Is that easy! Help me to build a better comunity in the devslopes Chatroom. 
