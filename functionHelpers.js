@@ -1,6 +1,7 @@
 var bot = require("./bot.js"),
     VerEx = require('verbal-expressions'),
     stackexchange = require('stackexchange');
+    google = require ("./google.js");
 
 //this is use in the line 44 of this code - do not remove
 // is an object that contains one function
@@ -119,3 +120,31 @@ exports.response = function(message) {
          }
      });
   } ////////// End StackOverFlow function ////////////
+
+
+  /////////////********Google Search Function ****************//////////////
+
+  exports.googleSearch = function (searchQuery,message) {
+
+  google.resultsPerPage = 3
+  var counter = 0
+  google(searchQuery, function (err, res){
+    if (err) console.error(err)
+      var link = res.links[counter];
+      fun.replyToMessageWith(link.title + ' - ' + link.href,message);
+      // Uncoment this line if you want the description of the web page
+        //  fun.replyToMessageWith(link.description + "\n",message);
+      counter += 1
+    if (counter <= 2){
+      // run the function again aka do the search again
+      res.next()
+    }else {
+      // else if counter if greater than 2 return. I dont want more google results
+      return;
+    }
+
+    });
+
+  }
+
+  /////////////********END Google Search Function ****************//////////////
