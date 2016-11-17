@@ -82,7 +82,7 @@ bot.on("guildMemberAdd", (member) => {
 });
 
 //Login to Discord using oauth
-bot.login('MjQ1NjI0NzI4NDMyMTQ4NDgy.CwOzaQ.yB4TBGLmU9QMZcQrYt1aed3xZ20');
+bot.login('TOKEN KEY');
 
 //*************  Node Js Server  ************************//
 //Lets define a port we want to listen to
