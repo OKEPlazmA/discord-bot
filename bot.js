@@ -33,6 +33,9 @@ var prefix = '!';
 bot.on('message', function(message) {
     var input = message.content.toUpperCase();
     var msgContent = message.content;
+    var lastMessage = false;
+    functionHelper.lastMessage = lastMessage = false ;
+    console.log(functionHelper.lastMessage + " boleana del message ");
     var regEx = /<|>/g;
     var reg = /[0-9]/g;
     var req3 = 	/[@]+/ ;
@@ -45,20 +48,6 @@ bot.on('message', function(message) {
     //prevent the bot from issuing commands
     if (message.author.bot) {
         return;
-    }else
-
-    //AI of the bot
-    if (message.isMentioned(userBot)){
-
-      //Call to CleverBot Ai
-      cvtBot.ask(str3, function (err, response) {
-        var req1 = /[,]/;
-        var str1 = response.replace(req1,"");
-        var str2 = "\n (This is a Automated message from the Cleverbot API ) "
-        message.reply(str1 + str2);
-
-      });
-      return;
     }else
 
     //This part is where we define the conditions
@@ -93,25 +82,41 @@ bot.on('message', function(message) {
     // YouTube API
     if ((msgContent).startsWith("!Y")) {
         functionHelper.youtubeApiResults((functionHelper.removeThatPhrase(input, '!Y', '')), message);
+
     }
 
     //Conditional responses
-    functionHelper.checkConditions([iAmPretty], message, "Yes. You are always pretty. Keep smiling.");
-    functionHelper.checkConditions([loveBot], message, "Thank you. You are way cooler than me.");
-    functionHelper.checkConditions([whosBot], message, "I'm here to help you to become a better developer. I am a work in progress.");
-    functionHelper.checkConditions([howBot], message, "Enter '!help' for a list of commands.");
-    functionHelper.checkConditions([kickstarterCondition1, kickstarterCondition2, kickstarterCondition3], message, "Kickstarter backers who pledged above $60 get lifetime access for FREE to any and all courses that Devslopes will ever release.");
-    functionHelper.checkConditions([lateEvent], message, "Email jason@devslope.com for more info.");
-    functionHelper.checkConditions([macApp], message, "The Mac and Apple TV app will be out by the end of the year.");
-    functionHelper.checkConditions([tvApp], message, "The Mac and Apple TV app will be out by the end of the year.");
-    functionHelper.checkConditions([devStickers], message, "https://itunes.apple.com/us/app/hacker-pack-coding-nerd-stickers/id1154247796?mt=8");
-    functionHelper.checkConditions([devBook], message, "The Devslopes Book should be out Nov 30th for digital copy, physcical copies shortly after.");
+    functionHelper.checkConditions([iAmPretty], message, "Yes. You are always pretty. Keep smiling.",lastMessage);
+    functionHelper.checkConditions([loveBot], message, "Thank you. You are way cooler than me.",lastMessage);
+    functionHelper.checkConditions([whosBot], message, "I'm here to help you to become a better developer. I am a work in progress.",lastMessage);
+    functionHelper.checkConditions([howBot], message, "Enter '!help' for a list of commands.",lastMessage);
+    functionHelper.checkConditions([kickstarterCondition1, kickstarterCondition2, kickstarterCondition3], message, "Kickstarter backers who pledged above $60 get lifetime access for FREE to any and all courses that Devslopes will ever release.In the Devslope app not in  udemy",lastMessage );
+    functionHelper.checkConditions([lateEvent], message, "Email jason@devslope.com for more info.",lastMessage);
+    functionHelper.checkConditions([macApp], message, "The Mac and Apple TV app will be out by the end of the year.",lastMessage);
+    functionHelper.checkConditions([tvApp], message, "The Mac and Apple TV app will be out by the end of the year.",lastMessage);
+    functionHelper.checkConditions([devStickers], message, "https://itunes.apple.com/us/app/hacker-pack-coding-nerd-stickers/id1154247796?mt=8",lastMessage);
+    functionHelper.checkConditions([devBook], message, "The Devslopes Book should be out Nov 30th for digital copy, physcical copies shortly after.",lastMessage);
 
     //Unconditional responses
     functionHelper.response(message);
 
     // This function check for !Course and !help and !Coupon
     functionHelper.messageAuthor(message, prefix);
+
+    console.log(functionHelper.lastMessage + " Booleana del bot ");
+    //AI of the bot
+    if (message.isMentioned(userBot) && !functionHelper.lastMessage){
+
+      // Call to CleverBot Ai
+      cvtBot.ask(str3, function (err, response) {
+        var req1 = /[,]/;
+        var str1 = response.replace(req1,"");
+        var str2 = "\n (This is a Automated message from the Cleverbot API.This answer is not related to the devslope community. This is just for fun.) "
+        message.reply(str1 + str2);
+
+      });
+      return;
+    }
 
 });
 /////// ********* Discord.js Events ******** //////////////
