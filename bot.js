@@ -6,21 +6,60 @@ var Discord = require('discord.js'),
     http = require('http'),
     // to make https request e.g get,post,put,delete
     request = require('request'),
-    functionHelper = require('./functionHelpers.js');
+    functionHelper = require('./functionHelpers.js'),
+    cleverbot = require("cleverbot.io") ;
 
 // bot client You can now use the bots features
 const bot = new Discord.Client();
+const msg = new Discord.Message();
+const guild = new Discord.Guild();
+var newUsers = new Discord.Collection();
+var userLeave = new Discord.Collection();
+var guilds = new Discord.Collection();
+
+cvtBot = new cleverbot('t90jx8jz3mxLgrfV','rkT50tkrhReR78fruo3YHGZaJub9leXT');
+cvtBot.setNick("devs-session");
+cvtBot.create(function (err, session) {
+
+});
+
+
+
 var prefix = '!';
+
+
 
 // This will run whenever the bot get a message. / whenever a message is sent to a server that it is in
 bot.on('message', function(message) {
     var input = message.content.toUpperCase();
     var msgContent = message.content;
+    var regEx = /<|>/g;
+    var reg = /[0-9]/g;
+    var req3 = 	/[@]+/ ;
+    var str1 = msgContent.replace(reg,"");
+    var str2 = str1.replace(regEx,"");
+    var str3 = str2.replace(req3,"");
+    var userBot = message.guild.members.array()[6]
+    console.log(str3 + " this is message");
 
     //prevent the bot from issuing commands
     if (message.author.bot) {
         return;
-    }
+    }else
+
+    //AI of the bot
+    if (message.isMentioned(userBot)){
+
+      //Call to CleverBot Ai
+      cvtBot.ask(str3, function (err, response) {
+        var req1 = /[,]/;
+        var str1 = response.replace(req1,"");
+        var str2 = "\n (This is a Automated message from the Cleverbot API ) "
+        message.reply(str1 + str2);
+
+      });
+      return;
+    }else
 
     //This part is where we define the conditions
     var kickstarterCondition1 = (input.includes("KICKSTARTER BACKER") && input.includes("COURSE"));
@@ -40,7 +79,7 @@ bot.on('message', function(message) {
     if ((msgContent).startsWith("!G")) {
         console.log("input: " + input);
         functionHelper.googleSearch(functionHelper.removeThatPhrase(message.content, "!G", ' '), message);
-    }
+    }else
 
     // stackoverflow API
     if ((msgContent).startsWith("!S")) {
@@ -49,7 +88,7 @@ bot.on('message', function(message) {
             console.log("llego al ! excalamcion");
             functionHelper.stackOverflowApiResults(functionHelper.removeThatPhrase(message.content, '!S', ' '), message);
         }
-    }
+    }else
 
     // YouTube API
     if ((msgContent).startsWith("!Y")) {
@@ -75,14 +114,98 @@ bot.on('message', function(message) {
     functionHelper.messageAuthor(message, prefix);
 
 });
-
-//Welcomes new members
+/////// ********* Discord.js Events ******** //////////////
+//this event get trigered when a new member join the Server(guild)
 bot.on("guildMemberAdd", (member) => {
-    member.guild.defaultChannel.sendMessage("Hello " + member.user + " Welcome to the Devslopes community! Use '!help' for more commands.")
+    console.log("memeber "+ member.user.username);
+    newUsers.set(member.user.id, member.user);
+    var mention = "<@"+member.user.id+">";
+    if(newUsers.size >= 2) {
+      var userlist = newUsers.map(u => mention).join(" ");
+     member.guild.defaultChannel.sendMessage("Hello " + userlist + " Welcome to the Devslopes community! Use '!help' for more commands.")
+     newUsers = new Discord.Collection();
+  }
 });
 
+//This event get triggered when a user leave the server
+bot.on("guildMemberRemove",(member) => {
+  if(newUsers.exists("id", member.user.id )){
+    newUsers.delete(member.user.id);
+    userLeave.set(member.user.id,member.user);
+    var userName = member.user.username;
+    if(userLeave.size > 1){
+      var userList = userLeave.map(u => userName).join(" ");
+     member.guild.defaultChannel.sendMessage(userList + " Leave the Server.")
+     userLeave = new Discord.Collection();
+   }
+  }
+
+});
+
+
+
+//This event get trigered when the bot is ready
+bot.on("ready", () => {
+      guilds = bot.guilds.first();
+      if(guilds.available){
+        if(guilds.channels.first().name === "general"){
+          //  bot.guilds.first().channels.first().sendMessage("Hello,I'm your bot and I'm Back!! with new function to help you. Now I have an AI and you can chat with me.Try me! ")
+      }
+      }else { // if the server is unavailable
+        console.log(" Server unavailable line 98 of the code");
+      }
+});
+
+///////******* Events for Safety Check ************ //////////
+
+// This event get trigered when the bot is offline
+bot.on('disconnect',()=> {
+  guilds = bot.guilds.first();
+   if(guilds.channels.first().name === "general"){
+      bot.guilds.first().channels.first().sendMessage("OHHH noo! I'm offline. ")
+   }
+});
+// This event is for general debugging Information
+bot.on('debug',(The)=>{
+  console.log("Debug message: "+ The);
+});
+//
+// // this event get triggered whenever the Client encounters a serious connection error.
+bot.on('error',(error) =>{
+  guilds = bot.guilds.first();
+   if(guilds.channels.first().name === "general"){
+      bot.guilds.first().channels.first().sendMessage("OHHH noo! I have an error: "+ error)
+   }
+});
+
+// This event get Triggered for general warnings
+bot.on('warn',(The) => {
+  guilds = bot.guilds.first();
+   if(guilds.channels.first().name === "general"){
+      bot.guilds.first().channels.first().sendMessage("I received this warnings from my programm: "+ The)
+    }
+});
+
+// This event get triggered when the Client tries to reconnect after beign disconnect
+bot.on('reconnecting',()=>{
+  guilds = bot.guilds.first();
+   if(guilds.channels.first().name === "general"){
+      bot.guilds.first().channels.first().sendMessage("Hold on I'm trying to reconnect ")
+    }
+
+});
+
+
+
+
+
+
+
+
+
+
 //Login to Discord using oauth
-bot.login('TOKEN KEY');
+bot.login('MjQ1MzkwMDg0NDgyOTI0NTQ2.CwLZWw.ZtEx-ka6U68bm7EvwWKdctzTh9o');
 
 //*************  Node Js Server  ************************//
 //Lets define a port we want to listen to
