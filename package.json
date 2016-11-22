@@ -17,6 +17,7 @@
   "author": "Christian Nogueras Rosado",
   "license": "ISC",
   "dependencies": {
+    "cleverbot.io": "^1.0.4",
     "debug": "^2.3.2",
     "discord.js": "^10.0.1",
     "foreman": "2.0.0",
