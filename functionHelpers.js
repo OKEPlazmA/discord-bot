@@ -24,13 +24,15 @@ exports.removeThatPhrase = function(sentence, phraseToReplace, replacePhraseWith
 }
 
 //Create conditional responses for specified queries
-exports.checkConditions = function(conditions, message, str) {
+exports.checkConditions = function(conditions, message, str,lastMessage) {
     for (var i in conditions) {
         if (conditions[i]) {
             message.reply(str);
-            return;
+            exports.lastMessage = true;
         }
-    }
+  }
+
+  return
 }
 
 //Creat undconditional responses
