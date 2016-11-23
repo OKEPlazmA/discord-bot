@@ -119,35 +119,40 @@ bot.on('message', function(message) {
     }
 
 });
-/////// ********* Discord.js Events ******** //////////////
-//this event get trigered when a new member join the Server(guild)
+
+//Welcomes new members
 bot.on("guildMemberAdd", (member) => {
-    console.log("memeber "+ member.user.username);
-    newUsers.set(member.user.id, member.user);
-    var mention = "<@"+member.user.id+">";
-    if(newUsers.size >= 2) {
-      var userlist = newUsers.map(u => mention).join(" ");
-     member.guild.defaultChannel.sendMessage("Hello " + userlist + " Welcome to the Devslopes community! Use '!help' for more commands.")
-     newUsers = new Discord.Collection();
-  }
+    let guild = member.guild
+    member.user.sendMessage("Hello, Welcome to the Devslopes community! Use '!help' for more commands.")
 });
 
-//This event get triggered when a user leave the server
-bot.on("guildMemberRemove",(member) => {
-  if(newUsers.exists("id", member.user.id )){
-    newUsers.delete(member.user.id);
-    userLeave.set(member.user.id,member.user);
-    var userName = member.user.username;
-    if(userLeave.size > 1){
-      var userList = userLeave.map(u => userName).join(" ");
-     member.guild.defaultChannel.sendMessage(userList + " Leave the Server.")
-     userLeave = new Discord.Collection();
-   }
-  }
-
-});
-
-
+// /////// ********* Discord.js Events ******** //////////////
+// //this event get trigered when a new member join the Server(guild)
+// bot.on("guildMemberAdd", (member) => {
+//     console.log("memeber "+ member.user.username);
+//     newUsers.set(member.user.id, member.user);
+//     var mention = "<@"+member.user.id+">";
+//     if(newUsers.size >= 2) {
+//       var userlist = newUsers.map(u => mention).join(" ");
+//      member.guild.defaultChannel.sendMessage("Hello " + userlist + " Welcome to the Devslopes community! Use '!help' for more commands.")
+//      newUsers = new Discord.Collection();
+//   }
+// });
+//
+// //This event get triggered when a user leave the server
+// bot.on("guildMemberRemove",(member) => {
+//   if(newUsers.exists("id", member.user.id )){
+//     newUsers.delete(member.user.id);
+//     userLeave.set(member.user.id,member.user);
+//     var userName = member.user.username;
+//     if(userLeave.size > 1){
+//       var userList = userLeave.map(u => userName).join(" ");
+//      member.guild.defaultChannel.sendMessage(userList + " Leave the Server.")
+//      userLeave = new Discord.Collection();
+//    }
+//   }
+//
+// });
 
 //This event get trigered when the bot is ready
 bot.on("ready", () => {
