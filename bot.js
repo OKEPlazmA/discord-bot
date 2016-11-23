@@ -78,11 +78,12 @@ bot.on('message', function(message) {
 
 //Welcomes new members
 bot.on("guildMemberAdd", (member) => {
-    member.guild.defaultChannel.sendMessage("Hello " + member.user + " Welcome to the Devslopes community! Use '!help' for more commands.")
+    let guild = member.guild
+    member.user.sendMessage("Hello, Welcome to the Devslopes community! Use '!help' for more commands.")
 });
 
 //Login to Discord using oauth
-bot.login('TOKEN KEY');
+bot.login('MjQ1NjI0NzI4NDMyMTQ4NDgy.CwOzaQ.yB4TBGLmU9QMZcQrYt1aed3xZ20');
 
 //*************  Node Js Server  ************************//
 //Lets define a port we want to listen to
