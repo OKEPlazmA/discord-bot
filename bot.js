@@ -78,7 +78,8 @@ bot.on('message', function(message) {
 
 //Welcomes new members
 bot.on("guildMemberAdd", (member) => {
-    member.guild.defaultChannel.sendMessage("Hello " + member.user + " Welcome to the Devslopes community! Use '!help' for more commands.")
+    let guild = member.guild
+    member.user.sendMessage("Hello, Welcome to the Devslopes community! Use '!help' for more commands.")
 });
 
 //Login to Discord using oauth
