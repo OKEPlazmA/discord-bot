@@ -1,15 +1,25 @@
 # discord-bot
-A cool bot that answers common student questions and has a little fun
-<br/>
 
-<ul>
-If you want to contribute:
-<ol>  1) Fork the github repo Testing branch: https://github.com/devslopes/discord-bot/tree/bot2.1-testing. <b>Important</b> do not fork the master. </ol>
-<ol>  2) Make a pull request to the <b>Testing</b> branch or create you own Branch if you have something cool that you have done. Tutorial: http://hisham.hm/2016/01/01/how-to-make-a-pull-request-on-github-a-quick-tutorial/. <b> Important </b> DO NOT make the pull request to the master. </ol>
-<ol>  3) A moderator may merge it in, or get with you if they have questions. </ol>
-<ol>  4) You can work on the TODOs that are in Issues tab. </ol>
-<ol>  5) Before start playing with the code do a npm install, this will install all the dependecies that are needed to make the bot work. </ol>
-<ol>  6) To test the code ask for a invite to the Discord Test serever.  </ol>
-</ul>
 
- IMPORTANT !!!!!!! Download your project from the Testing branch and make a <b> pull request </b> to the <b> Testing branch or your own branch </b>  ***** IMPORTANT BEFORE DOWNLOADING OR CONTRUBUITING TO THE PROJECT READ THIS!!! ***** 
+A cool Discord bot that answers common student questions and has a little fun.
+
+## How to Use 
+1. ```cd dir``` 
+2. ```npm install```
+3. Replace TOKEN_KEY in bot.js with your API key
+4. ```node bot.js```
+
+ 
+ ## How to Contribute 
+1. Fork the github repo Testing branch: https://github.com/devslopes/discord-bot/tree/bot2.1-testing.  **Do not fork the master branch.**
+2. To test the code ask for a invite to the Discord test serever or create your own test server with your own API key
+3. Make a pull request to the *Testing branch* or create your own branch. 
+    - **How to make a pull request**: http://hisham.hm/2016/01/01/how-to-make-a-pull-request-on-github-a-quick-tutorial/
+4. A moderator may merge your branch or recommend changes to your branch
+
+
+ **IMPORTANT**: Download your project from the *Testing branch* and make a *pull request to the Testing branch* or your own branch 
+ 
+ ## What's Next?
+ Check out the [TODO](https://github.com/devslopes/discord-bot/issues) for features we are currently working on.
+ 
