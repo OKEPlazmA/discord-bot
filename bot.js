@@ -9,13 +9,14 @@ var Discord = require('discord.js'),
     functionHelper = require('./functionHelpers.js');
 
 // bot client You can now use the bots features
-const bot = new Discord.Client();
-var prefix = '!';
+var bot = new Discord.Client();
+
+const prefix = '!';
 
 // This will run whenever the bot get a message. / whenever a message is sent to a server that it is in
 bot.on('message', function(message) {
-    var input = message.content.toUpperCase();
-    var msgContent = message.content;
+    let input = message.content.toUpperCase();
+    let msgContent = message.content;
 
     //prevent the bot from issuing commands
     if (message.author.bot) {
@@ -23,18 +24,18 @@ bot.on('message', function(message) {
     }
 
     //This part is where we define the conditions
-    var kickstarterCondition1 = (input.includes("KICKSTARTER BACKER") && input.includes("COURSE"));
-    var kickstarterCondition2 = (input.includes("KICKSTARTER") && input.includes("COURSE"));
-    var kickstarterCondition3 = (input.includes("BACKER") && input.includes("COURSE"));
-    var lateEvent = (input.includes("LATE") && input.includes("PLEDGE"));
-    var macApp = (input.includes("MAC") && ("APP") && input.includes("DEVSLOPE"));
-    var tvApp = (input.includes("TV") && input.includes("APP") && input.includes("DEVSLOPE"));
-    var devStickers = (input.includes("DEVSLOPE") && input.includes("STICKERS"));
-    var devBook = (input.includes("DEVSLOPE") && input.includes("BOOK"));
-    var loveBot = ((input.includes("LOVING") || input.includes("LIKE") || input.includes("LOVE")) && input.includes("BOT"));
-    var whosBot = (input.includes("BOT WHO ARE YOU"));
-    var iAmPretty = (input.includes("I AM PRETTY"));
-    var howBot = (input.includes("HOW") && input.includes ("BOT"));
+    let kickstarterCondition1 = (input.includes("KICKSTARTER BACKER") && input.includes("COURSE"));
+    let kickstarterCondition2 = (input.includes("KICKSTARTER") && input.includes("COURSE"));
+    let kickstarterCondition3 = (input.includes("BACKER") && input.includes("COURSE"));
+    let lateEvent = (input.includes("LATE") && input.includes("PLEDGE"));
+    let macApp = (input.includes("MAC") && ("APP") && input.includes("DEVSLOPE"));
+    let tvApp = (input.includes("TV") && input.includes("APP") && input.includes("DEVSLOPE"));
+    let devStickers = (input.includes("DEVSLOPE") && input.includes("STICKERS"));
+    let devBook = (input.includes("DEVSLOPE") && input.includes("BOOK"));
+    let loveBot = ((input.includes("LOVING") || input.includes("LIKE") || input.includes("LOVE")) && input.includes("BOT"));
+    let whosBot = (input.includes("BOT WHO ARE YOU"));
+    let iAmPretty = (input.includes("I AM PRETTY"));
+    let howBot = (input.includes("HOW") && input.includes ("BOT"));
 
     // Google Search Function
     if ((msgContent).startsWith("!G")) {
