@@ -37,7 +37,6 @@ exports.checkConditions = function(conditions, message, str) {
 exports.response = function(message) {
     var responseObject = {
         "how to use bot": "Enter '!help'",
-        "wat": "Say what?",
         "lol": "roflmaotntpmp"
     };
 

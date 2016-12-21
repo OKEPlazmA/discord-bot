@@ -24,17 +24,14 @@ bot.on('message', function(message) {
     }
 
     //This part is where we define the conditions
-    let kickstarterCondition1 = (input.includes("KICKSTARTER BACKER") && input.includes("COURSE"));
-    let kickstarterCondition2 = (input.includes("KICKSTARTER") && input.includes("COURSE"));
-    let kickstarterCondition3 = (input.includes("BACKER") && input.includes("COURSE"));
-    let lateEvent = (input.includes("LATE") && input.includes("PLEDGE"));
-    let macApp = (input.includes("MAC") && ("APP") && input.includes("DEVSLOPE"));
+    //let kickstarterCondition1 = (input.includes("KICKSTARTER BACKER") && input.includes("COURSE"));
+    //let kickstarterCondition2 = (input.includes("KICKSTARTER") && input.includes("COURSE"));
+    //let kickstarterCondition3 = (input.includes("BACKER") && input.includes("COURSE"));
+    let macApp = (input.includes("MAC") && ("APP"));
     let tvApp = (input.includes("TV") && input.includes("APP") && input.includes("DEVSLOPE"));
     let devStickers = (input.includes("DEVSLOPE") && input.includes("STICKERS"));
     let devBook = (input.includes("DEVSLOPE") && input.includes("BOOK"));
-    let loveBot = ((input.includes("LOVING") || input.includes("LIKE") || input.includes("LOVE")) && input.includes("BOT"));
     let whosBot = (input.includes("BOT WHO ARE YOU"));
-    let iAmPretty = (input.includes("I AM PRETTY"));
     let howBot = (input.includes("HOW") && input.includes ("BOT"));
 
     // Google Search Function
@@ -58,16 +55,15 @@ bot.on('message', function(message) {
     }
 
     //Conditional responses
-    functionHelper.checkConditions([iAmPretty], message, "Yes. You are always pretty. Keep smiling.");
-    functionHelper.checkConditions([loveBot], message, "Thank you. You are way cooler than me.");
     functionHelper.checkConditions([whosBot], message, "I'm here to help you to become a better developer. I am a work in progress.");
     functionHelper.checkConditions([howBot], message, "Enter '!help' for a list of commands.");
-    functionHelper.checkConditions([kickstarterCondition1, kickstarterCondition2, kickstarterCondition3], message, "Kickstarter backers who pledged above $60 get lifetime access for FREE to any and all courses that Devslopes will ever release.");
-    functionHelper.checkConditions([lateEvent], message, "Email jason@devslope.com for more info.");
-    functionHelper.checkConditions([macApp], message, "The Mac and Apple TV app will be out by the end of the year.");
-    functionHelper.checkConditions([tvApp], message, "The Mac and Apple TV app will be out by the end of the year.");
+    //Needs Updated
+    //functionHelper.checkConditions([kickstarterCondition1, kickstarterCondition2, kickstarterCondition3], message, "Kickstarter backers who pledged above $60 get lifetime access for FREE to any and all courses that Devslopes will ever release.");
+    functionHelper.checkConditions([macApp], message, "The Mac App is planned to be out Jan 1st.");
+    //Needs Updated
+    //functionHelper.checkConditions([tvApp], message, "The Mac and Apple TV app will be out by the end of the year.");
     functionHelper.checkConditions([devStickers], message, "https://itunes.apple.com/us/app/hacker-pack-coding-nerd-stickers/id1154247796?mt=8");
-    functionHelper.checkConditions([devBook], message, "The Devslopes Book should be out Nov 30th for digital copy, physcical copies shortly after.");
+    functionHelper.checkConditions([devBook], message, "Get Devslopes Pre-Release eBook here: http://coderswag.com/products/devslopes-e-book-pre-release?utm_content=buffer7b962&utm_medium=social&utm_source=facebook.com&utm_campaign=buffer");
 
     //Unconditional responses
     functionHelper.response(message);
@@ -83,7 +79,7 @@ bot.on("guildMemberAdd", (member) => {
 });
 
 //Login to Discord using oauth
-bot.login('TOKEN KEY');
+bot.login('MjQ1MzkwMDg0NDgyOTI0NTQ2.CwQefg.p2rkiB8vIb5WHjbCyfCE3K1DA4s');
 
 //*************  Node Js Server  ************************//
 //Lets define a port we want to listen to
