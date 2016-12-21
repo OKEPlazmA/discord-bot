@@ -1,5 +1,6 @@
 var Discord = require('discord.js'),
-    request = require('request'),
+    http = require('http'),
+    request = require('request');
 
 // bot client You can now use the bots features
 var bot = new Discord.Client();
