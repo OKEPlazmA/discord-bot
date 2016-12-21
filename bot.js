@@ -1,23 +1,21 @@
 var Discord = require('discord.js'),
-    VerEx = require('verbal-expressions'),
-    http = require('http'),
     request = require('request'),
-    apiai = require('apiai');
 
 // bot client You can now use the bots features
 var bot = new Discord.Client();
 
 // This will run whenever the bot get a message. / whenever a message is sent to a server that it is in
 bot.on('message', function(message) {
-    let input = message.content.toUpperCase();
-    let msgContent = message.content;
+    let input = message.content;
 
    //prevent the bot from issuing commands
    if (message.author.bot) {
        return;
    }
 
-//API.AI START
+////////////////
+//API.AI START//
+////////////////
 
     var apiai = require('apiai');
     // Api.ai Token DO NOT SHARE THIS. Make sure to put in your discord bot token in at the bottem.
@@ -44,13 +42,15 @@ bot.on('message', function(message) {
         console.log(error);
     });
 
-//API.AI END
+//////////////
+//API.AI END//
+//////////////
 
 });
 
 //Welcomes new members
 bot.on("guildMemberAdd", (member) => {
-    member.guild.defaultChannel.sendMessage("Hello " + member.user + " Welcome to the Devslopes community! Use '!help' for more commands.")
+    member.guild.defaultChannel.sendMessage("Hello " + member.user + " Welcome to the Devslopes community!")
 });
 
 //Login to Discord using oauth
