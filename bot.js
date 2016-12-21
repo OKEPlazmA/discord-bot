@@ -5,6 +5,11 @@ var Discord = require('discord.js'),
 // bot client You can now use the bots features
 var bot = new Discord.Client();
 
+//Welcomes new members
+bot.on("guildMemberAdd", (member) => {
+    member.guild.defaultChannel.sendMessage("Hello " + member.user + " Welcome to the Devslopes community!")
+});
+
 // This will run whenever the bot get a message. / whenever a message is sent to a server that it is in
 bot.on('message', function(message) {
     let input = message.content;
@@ -20,7 +25,7 @@ bot.on('message', function(message) {
 
     var apiai = require('apiai');
     // Api.ai Token DO NOT SHARE THIS. Make sure to put in your discord bot token in at the bottem.
-    var app = apiai("API_AI_CLIENT_TOKEN_KEY");
+    var app = apiai("34c386a2e4f54052ba1fec2e6079ec4c");
 
     var request = app.textRequest(`${input}`, {
       sessionId: '123TEST123'
@@ -29,7 +34,11 @@ bot.on('message', function(message) {
     // Log all responses.
     request.on('response', function(response) {
         let responseText = response.result.fulfillment.speech;
-        message.reply(`${responseText}`);
+        if (responseText == "") {
+          console.log("Nill Response");
+        } else {
+          message.reply(`${responseText}`);
+        }
         console.log(response);
     });
 
@@ -49,13 +58,8 @@ bot.on('message', function(message) {
 
 });
 
-//Welcomes new members
-bot.on("guildMemberAdd", (member) => {
-    member.guild.defaultChannel.sendMessage("Hello " + member.user + " Welcome to the Devslopes community!")
-});
-
 //Login to Discord using oauth
-bot.login('DISCORD_TOKEN_KEY');
+bot.login('MjQ1MzkwMDg0NDgyOTI0NTQ2.CwQefg.p2rkiB8vIb5WHjbCyfCE3K1DA4s');
 
 //*************  Node Js Server  ************************//
 //Lets define a port we want to listen to
