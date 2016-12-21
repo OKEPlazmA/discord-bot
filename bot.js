@@ -20,7 +20,7 @@ bot.on('message', function(message) {
 
     var apiai = require('apiai');
     // Api.ai Token DO NOT SHARE THIS. Make sure to put in your discord bot token in at the bottem.
-    var app = apiai("53c515f369144ff09d095c6602049b25");
+    var app = apiai("API_AI_CLIENT_TOKEN_KEY");
 
     var request = app.textRequest(`${input}`, {
       sessionId: '123TEST123'
@@ -55,7 +55,7 @@ bot.on("guildMemberAdd", (member) => {
 });
 
 //Login to Discord using oauth
-bot.login('MjQ1MzkwMDg0NDgyOTI0NTQ2.CwQefg.p2rkiB8vIb5WHjbCyfCE3K1DA4s');
+bot.login('DISCORD_TOKEN_KEY');
 
 //*************  Node Js Server  ************************//
 //Lets define a port we want to listen to
