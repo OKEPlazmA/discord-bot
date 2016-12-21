@@ -6,11 +6,11 @@ var Discord = require('discord.js'),
     http = require('http'),
     // to make https request e.g get,post,put,delete
     request = require('request'),
-    functionHelper = require('./functionHelpers.js');
+    functionHelper = require('./functionHelpers.js'),
+    apiai = require('apiai');
 
 // bot client You can now use the bots features
 var bot = new Discord.Client();
-
 const prefix = '!';
 
 // This will run whenever the bot get a message. / whenever a message is sent to a server that it is in
@@ -22,17 +22,6 @@ bot.on('message', function(message) {
     if (message.author.bot) {
         return;
     }
-
-    //This part is where we define the conditions
-    //let kickstarterCondition1 = (input.includes("KICKSTARTER BACKER") && input.includes("COURSE"));
-    //let kickstarterCondition2 = (input.includes("KICKSTARTER") && input.includes("COURSE"));
-    //let kickstarterCondition3 = (input.includes("BACKER") && input.includes("COURSE"));
-    let macApp = (input.includes("MAC") && ("APP"));
-    let tvApp = (input.includes("TV") && input.includes("APP") && input.includes("DEVSLOPE"));
-    let devStickers = (input.includes("DEVSLOPE") && input.includes("STICKERS"));
-    let devBook = (input.includes("DEVSLOPE") && input.includes("BOOK"));
-    let whosBot = (input.includes("BOT WHO ARE YOU"));
-    let howBot = (input.includes("HOW") && input.includes ("BOT"));
 
     // Google Search Function
     if ((msgContent).startsWith("!G")) {
@@ -54,22 +43,57 @@ bot.on('message', function(message) {
         functionHelper.youtubeApiResults((functionHelper.removeThatPhrase(input, '!Y', '')), message);
     }
 
-    //Conditional responses
-    functionHelper.checkConditions([whosBot], message, "I'm here to help you to become a better developer. I am a work in progress.");
-    functionHelper.checkConditions([howBot], message, "Enter '!help' for a list of commands.");
-    //Needs Updated
-    //functionHelper.checkConditions([kickstarterCondition1, kickstarterCondition2, kickstarterCondition3], message, "Kickstarter backers who pledged above $60 get lifetime access for FREE to any and all courses that Devslopes will ever release.");
-    functionHelper.checkConditions([macApp], message, "The Mac App is planned to be out Jan 1st.");
-    //Needs Updated
-    //functionHelper.checkConditions([tvApp], message, "The Mac and Apple TV app will be out by the end of the year.");
-    functionHelper.checkConditions([devStickers], message, "https://itunes.apple.com/us/app/hacker-pack-coding-nerd-stickers/id1154247796?mt=8");
-    functionHelper.checkConditions([devBook], message, "Get Devslopes Pre-Release eBook here: http://coderswag.com/products/devslopes-e-book-pre-release?utm_content=buffer7b962&utm_medium=social&utm_source=facebook.com&utm_campaign=buffer");
-
     //Unconditional responses
     functionHelper.response(message);
 
     // This function check for !Course and !help and !Coupon
     functionHelper.messageAuthor(message, prefix);
+
+//API.AI START
+
+    var apiai = require('apiai');
+    // Api.ai Token DO NOT SHARE THIS. Make sure to put in your discord bot token in at the bottem.
+    var app = apiai("53c515f369144ff09d095c6602049b25");
+
+    var request = app.textRequest(`${input}`, {
+      sessionId: '123TEST123'
+    });
+
+    // Log all responses.
+    request.on('response', function(response) {
+        let responseText = response.result.fulfillment.speech;
+        console.log(response);
+        message.reply(`${responseText}`);
+    });
+
+    request.on('error', function(error) {
+        console.log(error);
+    });
+
+
+    request.end()
+
+        // if the message equals the prefix + something, run what's inside.
+       if (input.startsWith(prefix + "")) {
+
+           // Sends a request to discord with the message content. Also removes the prefix. Change the number depending on the length of your prefix.
+           app.textRequest(`${input}`);
+           // Get that response
+           request.on('response', function(response) {
+           // I did this to make it easier to read. Set's response text equal to the output speech.
+           let responseText = response.result.fulfillment.speech;
+           // Send the message to discord.
+           bot.sendMessage(msg, `${responseText}`);
+        });
+
+      }
+
+    // Pretty self explanitory but it logs errors.
+    request.on('error', function(error) {
+        console.log(error);
+    });
+
+//API.AI END
 
 });
 
@@ -79,7 +103,7 @@ bot.on("guildMemberAdd", (member) => {
 });
 
 //Login to Discord using oauth
-bot.login('TOKEN_KEY');
+bot.login('MjQ1MzkwMDg0NDgyOTI0NTQ2.CwQefg.p2rkiB8vIb5WHjbCyfCE3K1DA4s');
 
 //*************  Node Js Server  ************************//
 //Lets define a port we want to listen to
