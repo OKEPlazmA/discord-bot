@@ -63,10 +63,10 @@ bot.on('message', function(message) {
     functionHelper.checkConditions([howBot], message, "Enter '!help' for a list of commands.");
     functionHelper.checkConditions([kickstarterCondition1, kickstarterCondition2, kickstarterCondition3], message, "Kickstarter backers who pledged above $60 get lifetime access for FREE to any and all courses that Devslopes will ever release.");
     functionHelper.checkConditions([lateEvent], message, "Email jason@devslope.com for more info.");
-    functionHelper.checkConditions([macApp], message, "The Mac and Apple TV app will be out by mid of january.");
-    functionHelper.checkConditions([tvApp], message, "The Mac and Apple TV app will be out by mid of january.");
+   //  functionHelper.checkConditions([macApp], message, "The Mac and Apple TV app will be out by mid of january.");
+   // functionHelper.checkConditions([tvApp], message, "The Mac and Apple TV app will be out by mid of january.");
     functionHelper.checkConditions([devStickers], message, "https://itunes.apple.com/us/app/hacker-pack-coding-nerd-stickers/id1154247796?mt=8");
-    functionHelper.checkConditions([devBook], message, "The Devslopes Book should be out Nov 30th for digital copy, physcical copies shortly after.");
+    functionHelper.checkConditions([devBook], message, "The Devslopes Book should be out Nov 30th for digital copy, physcical copies after mid of february.");
 
     //Unconditional responses
     functionHelper.response(message);
