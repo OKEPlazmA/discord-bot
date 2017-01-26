@@ -11,5 +11,3 @@ If you want to contribute:
 <ol>  5) Before start playing with the code do a npm install, this will install all the dependecies that are needed to make the bot work. </ol>
 <ol>  6) To test the code ask for a invite to the Discord Test serever.  </ol>
 </ul>
-
- IMPORTANT !!!!!!! Download your project from the Testing branch and make a <b> pull request </b> to the <b> Testing branch or your own branch </b>  ***** IMPORTANT BEFORE DOWNLOADING OR CONTRUBUITING TO THE PROJECT READ THIS!!! ***** 
