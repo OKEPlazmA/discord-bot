@@ -23,15 +23,16 @@ bot.on('message', function(message) {
     }
 
     //This part is where we define the conditions
-    var kickstarterCondition1 = (input.includes("KICKSTARTER BACKER") && input.includes("COURSE"));
-    var kickstarterCondition2 = (input.includes("KICKSTARTER") && input.includes("COURSE"));
-    var kickstarterCondition3 = (input.includes("BACKER") && input.includes("COURSE"));
-    var lateEvent = (input.includes("LATE") && input.includes("PLEDGE"));
+    var kickstarterCondition1 = (input.includes("KICKSTARTER BACKER");
+    var kickstarterCondition2 = (input.includes("KICKSTARTER");
+    //var kickstarterCondition3 = (input.includes("BACKER") && input.includes("COURSE")); Commented out due to annoying commands
+    var devslopesHelp = (input.includes("BUGS") && input.includes("APP"));
     var macApp = (input.includes("MAC") && ("APP") && input.includes("DEVSLOPE"));
     var tvApp = (input.includes("TV") && input.includes("APP") && input.includes("DEVSLOPE"));
-    var devStickers = (input.includes("DEVSLOPE") && input.includes("STICKERS"));
-    var devBook = (input.includes("DEVSLOPE") && input.includes("BOOK"));
-    var loveBot = ((input.includes("LOVING") || input.includes("LIKE") || input.includes("LOVE")) && input.includes("BOT"));
+    var iosApp = (input.includes("IOS") && input.includes("APP") && input.includes("DEVSLOPE"));
+    var devStickers = (input.includes("STICKERS") // && input.includes("STICKERS")); No Longer Needed
+    var devBook = (input.includes("BOOK")  // && input.includes("BOOK")); No Longer Needed
+    var loveBot = ((input.includes("LOVING") && input.includes("BOT"));
     var whosBot = (input.includes("BOT WHO ARE YOU"));
     var iAmPretty = (input.includes("I AM PRETTY"));
     var howBot = (input.includes("HOW") && input.includes ("BOT"));
@@ -61,12 +62,13 @@ bot.on('message', function(message) {
     functionHelper.checkConditions([loveBot], message, "Thank you. You are way cooler than me.");
     functionHelper.checkConditions([whosBot], message, "I'm here to help you to become a better developer. I am a work in progress.");
     functionHelper.checkConditions([howBot], message, "Enter '!help' for a list of commands.");
-    functionHelper.checkConditions([kickstarterCondition1, kickstarterCondition2, kickstarterCondition3], message, "Kickstarter backers who pledged above $60 get lifetime access for FREE to any and all courses that Devslopes will ever release.");
-    functionHelper.checkConditions([lateEvent], message, "Email jason@devslope.com for more info.");
-   //  functionHelper.checkConditions([macApp], message, "The Mac and Apple TV app will be out by mid of january.");
-   // functionHelper.checkConditions([tvApp], message, "The Mac and Apple TV app will be out by mid of january.");
+    functionHelper.checkConditions([kickstarterCondition1, kickstarterCondition2], message, "Kickstarter backers who pledged above $60 get lifetime access for FREE to any and all courses that Devslopes will ever release.");
+    functionHelper.checkConditions([devslopesHelp]], message, "Email jason@devslope.com for help or queries.");
+    functionHelper.checkConditions([macApp], message, "The Mac app is currently out and can be found at https://itunes.apple.com/app/id1183088305#");
+    functionHelper.checkConditions([tvApp], message, "The IOS app is current out and can be found at https://itunes.apple.com/app/id1087131850#");
+    functionHelper.checkConditions([iosApp], message, "The Apple TV app is current out and can be found by search 'Devslopes' within the store");
     functionHelper.checkConditions([devStickers], message, "https://itunes.apple.com/us/app/hacker-pack-coding-nerd-stickers/id1154247796?mt=8");
-    functionHelper.checkConditions([devBook], message, "The Devslopes Book should be out Nov 30th for digital copy, physcical copies after mid of february.");
+    functionHelper.checkConditions([devBook], message, "The Devslopes Book is now OUT! For more details please see https://devslopes.com/book.");
 
     //Unconditional responses
     functionHelper.response(message);
@@ -79,7 +81,7 @@ bot.on('message', function(message) {
 //Welcomes new members
 bot.on("guildMemberAdd", (member) => {
     let guild = member.guild
-    member.user.sendMessage("Hello, Welcome to the Devslopes community! Use '!help' for more commands.")
+    member.user.sendMessage("Welcome, please check out the Devslopes amazing app. Its available on Mac https://itunes.apple.com/app/id1183088305#, IOS https://itunes.apple.com/app/id1087131850# & you can also search Devslopes on the Tv App Store !! You can even redeem your course from Udemy to the platform ! You can see more detail from https://devslopes.com/platforms. If you have any questions please message Jake Attard for more details! You can also use '!help' for more commands.")
 });
 
 //Login to Discord using oauth
