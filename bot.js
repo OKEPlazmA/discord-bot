@@ -30,12 +30,14 @@ bot.on('message', function(message) {
     var macApp = (input.includes("MAC") && ("APP") && input.includes("DEVSLOPE"));
     var tvApp = (input.includes("TV") && input.includes("APP") && input.includes("DEVSLOPE"));
     var iosApp = (input.includes("IOS") && input.includes("APP") && input.includes("DEVSLOPE"));
-    var devStickers = (input.includes("STICKERS") // && input.includes("STICKERS")); No Longer Needed
-    var devBook = (input.includes("BOOK")  // && input.includes("BOOK")); No Longer Needed
+    var devStickers = (input.includes("STICKERS"); // && input.includes("STICKERS")); No Longer Needed
+    var devBook = (input.includes("BOOK");  // && input.includes("BOOK")); No Longer Needed
     var loveBot = ((input.includes("LOVING") && input.includes("BOT"));
     var whosBot = (input.includes("BOT WHO ARE YOU"));
     var iAmPretty = (input.includes("I AM PRETTY"));
     var howBot = (input.includes("HOW") && input.includes ("BOT"));
+    var devslopesSubscription = (input.includes("SUBSCRIPTION"));
+    var devslopesCourses = (input.includes("COURSES"));
 
     // Google Search Function
     if ((msgContent).startsWith("!G")) {
@@ -69,7 +71,8 @@ bot.on('message', function(message) {
     functionHelper.checkConditions([iosApp], message, "The Apple TV app is current out and can be found by search 'Devslopes' within the store");
     functionHelper.checkConditions([devStickers], message, "https://itunes.apple.com/us/app/hacker-pack-coding-nerd-stickers/id1154247796?mt=8");
     functionHelper.checkConditions([devBook], message, "The Devslopes Book is now OUT! For more details please see https://devslopes.com/book.");
-
+    functionHelper.checkConditions([devslopesSubscription], message, "For more information on Devslopes Subscription please see https://devslopes.com/subscribe.");
+    functionHelper.checkConditions([devslopesCourses], message, "For more details on Devslopes Courses please see https://devslopes.com/courses.");
     //Unconditional responses
     functionHelper.response(message);
 
@@ -81,7 +84,7 @@ bot.on('message', function(message) {
 //Welcomes new members
 bot.on("guildMemberAdd", (member) => {
     let guild = member.guild
-    member.user.sendMessage("Welcome, please check out the Devslopes amazing app. Its available on Mac https://itunes.apple.com/app/id1183088305#, IOS https://itunes.apple.com/app/id1087131850# & you can also search Devslopes on the Tv App Store !! You can even redeem your course from Udemy to the platform ! You can see more detail from https://devslopes.com/platforms. If you have any questions please message Jake Attard for more details! You can also use '!help' for more commands.")
+    member.user.sendMessage("Welcome, please check out the Devslopes amazing app. Its available on Mac https://itunes.apple.com/app/id1183088305#, IOS https://itunes.apple.com/app/id1087131850# & you can also search Devslopes on the Tv App Store !! You can even redeem your course from Udemy to the platform ! You can see more detail from https://devslopes.com/platforms. If you have any questions please message JakeAttard or go to https://devslopes.com/ for more details! You can also use '!help' for more commands.")
 });
 
 //Login to Discord using oauth
