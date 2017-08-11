@@ -23,15 +23,15 @@ bot.on('message', function(message) {
     }
 
     //This part is where we define the conditions
-    var kickstarterCondition1 = (input.includes("KICKSTARTER BACKER");
-    var kickstarterCondition2 = (input.includes("KICKSTARTER");
+    var kickstarterCondition1 = (input.includes("KICKSTARTER BACKER"));
+    var kickstarterCondition2 = (input.includes("KICKSTARTER"));
     //var kickstarterCondition3 = (input.includes("BACKER") && input.includes("COURSE")); Commented out due to annoying commands
     var devslopesHelp = (input.includes("BUGS") && input.includes("APP"));
     var macApp = (input.includes("MAC") && ("APP") && input.includes("DEVSLOPE"));
     var tvApp = (input.includes("TV") && input.includes("APP") && input.includes("DEVSLOPE"));
     var iosApp = (input.includes("IOS") && input.includes("APP") && input.includes("DEVSLOPE"));
-    var devStickers = (input.includes("STICKERS"); // && input.includes("STICKERS")); No Longer Needed
-    var devBook = (input.includes("BOOK");  // && input.includes("BOOK")); No Longer Needed
+    var devStickers = (input.includes("STICKERS")); // && input.includes("STICKERS")); No Longer Needed
+    var devBook = (input.includes("BOOK"));  // && input.includes("BOOK")); No Longer Needed
     var loveBot = ((input.includes("LOVING") && input.includes("BOT"));
     var whosBot = (input.includes("BOT WHO ARE YOU"));
     var iAmPretty = (input.includes("I AM PRETTY"));
