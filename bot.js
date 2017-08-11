@@ -32,7 +32,7 @@ bot.on('message', function(message) {
     var iosApp = (input.includes("IOS") && input.includes("APP") && input.includes("DEVSLOPE"));
     var devStickers = (input.includes("STICKERS")); // && input.includes("STICKERS")); No Longer Needed
     var devBook = (input.includes("BOOK"));  // && input.includes("BOOK")); No Longer Needed
-    var loveBot = ((input.includes("LOVING") && input.includes("BOT"));
+    var loveBot = (input.includes("LOVING") && input.includes("BOT"));
     var whosBot = (input.includes("BOT WHO ARE YOU"));
     var iAmPretty = (input.includes("I AM PRETTY"));
     var howBot = (input.includes("HOW") && input.includes ("BOT"));
@@ -65,7 +65,7 @@ bot.on('message', function(message) {
     functionHelper.checkConditions([whosBot], message, "I'm here to help you to become a better developer. I am a work in progress.");
     functionHelper.checkConditions([howBot], message, "Enter '!help' for a list of commands.");
     functionHelper.checkConditions([kickstarterCondition1, kickstarterCondition2], message, "Kickstarter backers who pledged above $60 get lifetime access for FREE to any and all courses that Devslopes will ever release.");
-    functionHelper.checkConditions([devslopesHelp]], message, "Email jason@devslope.com for help or queries.");
+    functionHelper.checkConditions([devslopesHelp], message, "Email jason@devslope.com for help or queries.");
     functionHelper.checkConditions([macApp], message, "The Mac app is currently out and can be found at https://itunes.apple.com/app/id1183088305#");
     functionHelper.checkConditions([tvApp], message, "The IOS app is current out and can be found at https://itunes.apple.com/app/id1087131850#");
     functionHelper.checkConditions([iosApp], message, "The Apple TV app is current out and can be found by search 'Devslopes' within the store");
